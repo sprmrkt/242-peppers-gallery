@@ -1,0 +1,124 @@
+.InitialMedia {
+  // --------------------------- RULES ---------------------------
+
+  // ANYONE can edit the VALUES of style declarations for colors, type sizes, margins, paddings, gaps, alignment or justification
+  // SENIORS ONLY can add or remove declarations and edit layout values like display or position.
+
+  // -------------------------------------------------------------
+
+  position: relative;
+  border-radius: var(--general-border-radius);
+  overflow: hidden;
+  img, video {
+    display: block;
+  }
+}
+
+button.OpenButton {
+  position: absolute;
+  top: var(--spacing-unit);
+  right: var(--spacing-unit);
+  width: fit-content;
+  height: auto;
+  color: var(--light-color);
+  padding: 0;
+  z-index: 5;
+  border: none;
+  background-color: transparent;
+  border-radius: 0;
+
+  svg {
+    width: var(--spacing-unit);
+    height: var(--spacing-unit);
+    overflow: visible;
+    circle {
+      fill: transparent;
+    }
+    path {
+      stroke: currentColor;
+    }
+  }
+}
+
+.OverlayHolder {
+  position: fixed;
+  inset: 0;
+  padding: var(--site-margin);
+  width: 100%;
+  height: 100lvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  background-color: var(--dark-color);
+  backdrop-filter: none; // blur(10px) for example
+  overflow: hidden;
+  @include media(md) {
+    padding: var(--site-margin-md);
+  }
+}
+
+button.CloseButton {
+  // --------------------------- ANYONE CAN EDIT ---------------------------
+  --close-inset: 2rem;
+  --close-size: 2.2rem;
+  // --------------------------- SENIOR ONLY FROM HERE ---------------------------
+  position: absolute;
+  z-index: 10;
+  top: var(--spacing-unit);
+  right: var(--spacing-unit);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: auto;
+  border-radius: 50%;
+
+  svg {
+    width: var(--spacing-unit);
+    height: var(--spacing-unit);
+
+    path {
+      stroke: currentColor;
+    }
+  }
+}
+
+.Inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 1rem;
+
+  @include media(sm) {
+    height: 80vh;
+  }
+
+  @include media(md) {
+    height: 85vh;
+  }
+}
+
+.OverlayImageHolder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+
+  img, video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+

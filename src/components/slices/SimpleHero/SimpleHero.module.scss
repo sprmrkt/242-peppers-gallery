@@ -1,0 +1,91 @@
+.Holder {
+  // --------------------------- RULES ---------------------------
+
+  // ANYONE can edit the VALUES of style declarations for colors, type sizes, margins, paddings, gaps, alignment or justification
+  // SENIORS ONLY can add or remove declarations and edit layout values like display or position.
+
+  // -------------------------------------------------------------
+
+  margin: 0;
+  padding-top: calc(var(--header-height) + var(--slice-vertical-padding));
+  padding-left: var(--site-margin);
+  padding-bottom: var(--slice-vertical-padding);
+  padding-right: var(--site-margin);
+  color: var(--text-color);
+  background-color: transparent;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  @include media(md) {
+    padding-top: calc(var(--header-height) + var(--slice-vertical-padding-md));
+    padding-left: var(--site-margin-md);
+    padding-bottom: var(--slice-vertical-padding-md);
+    padding-right: var(--site-margin-md);
+  }
+
+  &.HasImage {
+    .Text {
+      min-height: 0;
+      justify-content: flex-start;
+    }
+  }
+}
+
+.Inner {
+  width: 100%;
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--grid-gap);
+  @include media(md) {
+    grid-template-columns: 1fr 1fr; // The reason we have included this is so you can quickly turn this into a two column layout if the design demands.
+  }
+}
+
+.Text {
+  min-height: 20lvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  @include media(md) {
+    min-height: 40lvh;
+  }
+}
+
+.ImageHolder {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--general-border-radius);
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.Subheading {
+  h1 {
+    @include subheadings;
+    margin: 0;
+  }
+}
+
+.Title {
+  @include font-heading;
+  @include h1;
+  margin: 0;
+}
+
+.Description {
+  p {
+    max-width: 90vw;
+
+    @include media(md) {
+      max-width: 50vw;
+    }
+  }
+}
+
