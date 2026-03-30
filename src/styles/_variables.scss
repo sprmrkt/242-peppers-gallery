@@ -12,9 +12,9 @@
 
   // These variable match classnames in base.scss and mixins file. Please do not add to or edit the names of these.
   // THREE FONTS IS PLENTY!
-  --font-heading: "Funnel Display", sans-serif;
-  --font-highlight: "Geist Mono", monospace;
-  --font-body: "Geist", sans-serif;
+  --font-heading: "TFArrow", serif;
+  --font-highlight: "AnconaEx", sans-serif;
+  --font-body: "TFArrow", serif;
 
   // Type scale
   // Please direct designers to this tool to generate these values: https://www.fluid-type-scale.com/
@@ -51,14 +51,14 @@
   // ------------------------------
 
   // 1. Set some colors
-  --black: #171615;
-  --white: #F6F5F4;
-  --greyLight: #eaeaea;
-  --greyMedium: #d5d5d5;
+  --eucalyptus: #64624C;
+  --white: #FDF5E6;
+  --uluru: #A75D40;
+  --blue: #C6E2E7;
 
   // It is good to know what the light and dark colors are. This may be used directly in limited places, like where text appears over an image.
   --light-color: var(--white);
-  --dark-color: var(--black);
+  --dark-color: var(--eucalyptus);
 
   // 2. Now set all the colours for the default variation
 
@@ -68,8 +68,8 @@
 
   // You may want a tint color of the BG for cards or for when a video loads
   // You have to set the color with a hex as variables do not work here so make sure it matches whatever you are setting as the slice bg color.
-  --bg-tint-color: #{color.scale(#F6F5F4, $lightness: -10%)};
-  --text-tint-color: #{color.scale(#171615, $lightness: 5%)};
+  --bg-tint-color: #{color.scale(#FDF5E6, $lightness: -10%)};
+  --text-tint-color: #{color.scale(#64624C, $lightness: 5%)};
 
   // Buttons
   --button-color: var(--bg-color);
@@ -89,10 +89,10 @@
   // 2. Now set all the colours for the variations
 
   // There are two available variations in colour. These are styled using the classNames color-variation-1/2
-  --var-1-text: var(--dark-color);
-  --var-1-bg: #eaeaea;
-  --var-1-bg-tint: #{color.scale(#eaeaea, $lightness: -10%)};
-  --var-1-text-tint: #{color.scale(#171615, $lightness: 10%)};
+  --var-1-text: var(--white);
+  --var-1-bg: var(--uluru);
+  --var-1-bg-tint: #{color.scale(#A75D40, $lightness: 10%)};
+  --var-1-text-tint: #{color.scale(#FDF5E6, $lightness: -10%)};
 
   --var-1-button-color: var(--var-1-bg);
   --var-1-button-bg-color: var(--var-1-text);
@@ -106,10 +106,10 @@
   --var-1-input-text-color: var(--var-1-text);
   --var-1-error-color: var(--var-1-text);
 
-  --var-2-text: var(--dark-color);
-  --var-2-bg: #d5d5d5;
-  --var-2-bg-tint: #{color.scale(#d5d5d5, $lightness: -10%)};
-  --var-2-text-tint: #{color.scale(#171615, $lightness: 5%)};
+  --var-2-text: var(--white);
+  --var-2-bg: #C6E2E7;
+  --var-2-bg-tint: #{color.scale(#C6E2E7, $lightness: 10%)};
+  --var-2-text-tint: #{color.scale(#FDF5E6, $lightness: -10%)};
 
   --var-2-button-color: var(--var-2-bg);
   --var-2-button-bg-color: var(--var-2-text);

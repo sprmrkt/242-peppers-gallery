@@ -1,5 +1,5 @@
 {
-  "repositoryName": "ps-build-template",
+  "repositoryName": "242-peppers-gallery",
   "adapter": "@slicemachine/adapter-next",
   "libraries": ["./src/slices"],
   "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"

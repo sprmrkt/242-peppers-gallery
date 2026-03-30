@@ -1,21 +1,32 @@
 import localFont from "next/font/local";
 
-export const ppNeueMontreal = localFont({
+export const anconaEx = localFont({
   display: "swap",
   fallback: ["sans-serif"],
   preload: true,
   src: [
     {
-      path: "../assets/fonts/pp-neue-montreal-regular/PPNeueMontreal-Regular.woff2",
+      path: "../assets/fonts/Ancona-Ex-Light-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+});
+
+export const tfArrow = localFont({
+  display: "swap",
+  fallback: ["sans-serif"],
+  preload: true,
+  src: [
+    {
+      path: "../assets/fonts/TFArrow-Light.ttf",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../assets/fonts/pp-neue-montreal-bold/PPNeueMontreal-Bold.woff2",
+      path: "../assets/fonts/TFArrow-Medium.ttf",
       weight: "700",
       style: "normal",
     },
   ],
-  variable: "--font-neue-montreal",
 });
-

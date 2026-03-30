@@ -3,31 +3,15 @@ import { PrismicPreview } from "@prismicio/next";
 import { createClient, repositoryName } from "@/prismicio";
 import Layout from "@/components/layout/Layout/Layout";
 import { notFound } from "next/navigation";
-import { Funnel_Display, Geist, Geist_Mono } from "next/font/google";
 import "@/styles/index.scss";
 // import { GoogleTagManager } from "@next/third-parties/google";
 
-// Custom font example: <body className={ppNeueMontreal.className}>
-// import { ppNeueMontreal } from "@/utils/fontLoader";
+import { anconaEx, tfArrow } from "@/utils/fontLoader";
 // See: https://nextjs.org/docs/app/getting-started/fonts#local-fonts
 
-const highlightFont = Geist_Mono({
-  weight: ["400"],
-  subsets: ["latin"],
-});
-const headingFont = Funnel_Display({
-  weight: ["700"],
-  subsets: ["latin"],
-});
-const bodyFont = Geist({
-  weight: ["400"],
-  subsets: ["latin"],
-});
-// MAKE SURE YOUR PRIMARY FONT IS THE LAST IN THE LIST
-
 export const metadata: Metadata = {
-  title: "Supermarket Starter",
-  description: "Next and Prismic starter for a Supermarket website",
+  title: "Peppers Gallery Hotel",
+  description: "Boutique Heritage Hotel in Canberra",
 };
 
 export default function RootLayout({
@@ -39,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       {/*<GoogleTagManager gtmId="GTM-XYZ" />*/}
       <body
-        className={`${highlightFont.className} ${headingFont.className} ${bodyFont.className}`}
+        className={`${tfArrow.className} ${anconaEx.className}`}
       >
         <InnerLayout>
           {children}
