@@ -432,7 +432,223 @@ interface PageDocumentData {
 export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
-export type AllDocumentTypes = HomeDocument | LayoutDocument | PageDocument;
+/**
+ * Item in *Room → Features*
+ */
+export interface RoomDocumentDataFeaturesItem {
+  /**
+   * Feature field in *Room → Features*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.features[].feature
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  feature: prismic.KeyTextField;
+}
+
+type RoomDocumentDataSlicesSlice = ImageGridSlice;
+
+/**
+ * Content for Room documents
+ */
+interface RoomDocumentData {
+  /**
+   * Title field in *Room*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Beds field in *Room*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.beds
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  beds: prismic.KeyTextField;
+
+  /**
+   * Guests field in *Room*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.guests
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  guests: prismic.KeyTextField;
+
+  /**
+   * Bath field in *Room*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.bath
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  bath: prismic.KeyTextField;
+
+  /**
+   * Description field in *Room*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Features field in *Room*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.features[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  features: prismic.GroupField<Simplify<RoomDocumentDataFeaturesItem>>;
+
+  /**
+   * Book now link field in *Room*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.book_now_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  book_now_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Slice Zone field in *Room*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<RoomDocumentDataSlicesSlice>; /**
+   * Meta Title field in *Room*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: room.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Room*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: room.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Room*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>; /**
+   * Preview image field in *Room*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.preview_image
+   * - **Tab**: Preview Card Content
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  preview_image: prismic.ImageField<never>;
+
+  /**
+   * Excerpt field in *Room*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.excerpt
+   * - **Tab**: Preview Card Content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  excerpt: prismic.RichTextField;
+
+  /**
+   * Preview Vimeo field in *Room*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.preview_vimeo
+   * - **Tab**: Preview Card Content
+   * - **Documentation**: https://prismic.io/docs/fields/embed
+   */
+  preview_vimeo: prismic.EmbedField;
+
+  /**
+   * Preview Video field in *Room*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.preview_video
+   * - **Tab**: Preview Card Content
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  preview_video: prismic.LinkToMediaField<prismic.FieldState, never>;
+
+  /**
+   * Video poster image field in *Room*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.video_poster_image
+   * - **Tab**: Preview Card Content
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  video_poster_image: prismic.ImageField<never>;
+}
+
+/**
+ * Room document from Prismic
+ *
+ * - **API ID**: `room`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type RoomDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<RoomDocumentData>, "room", Lang>;
+
+export type AllDocumentTypes =
+  | HomeDocument
+  | LayoutDocument
+  | PageDocument
+  | RoomDocument;
 
 /**
  * Item in *AccordionSection → Default → Primary → Items*
@@ -701,23 +917,27 @@ export type CardsSlice = prismic.SharedSlice<"cards", CardsSliceVariation>;
  */
 export interface ContentListSliceDefaultPrimaryContentItem {
   /**
-   * Page field in *ContentList → Default → Primary → Content*
+   * Room field in *ContentList → Default → Primary → Content*
    *
    * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
-   * - **API ID Path**: content_list.default.primary.content[].page
+   * - **API ID Path**: content_list.default.primary.content[].room
    * - **Documentation**: https://prismic.io/docs/fields/content-relationship
    */
-  page: ContentRelationshipFieldWithData<
+  room: ContentRelationshipFieldWithData<
     [
       {
-        id: "page";
+        id: "room";
         fields: [
           "title",
+          "beds",
+          "guests",
+          "bath",
+          "description",
           "preview_image",
-          "excerpt",
           "preview_vimeo",
           "preview_video",
+          "video_poster_image",
         ];
       },
     ]
@@ -1623,6 +1843,10 @@ declare module "@prismicio/client" {
       PageDocument,
       PageDocumentData,
       PageDocumentDataSlicesSlice,
+      RoomDocument,
+      RoomDocumentData,
+      RoomDocumentDataFeaturesItem,
+      RoomDocumentDataSlicesSlice,
       AllDocumentTypes,
       AccordionSectionSlice,
       AccordionSectionSliceDefaultPrimaryItemsItem,

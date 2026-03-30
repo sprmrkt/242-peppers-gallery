@@ -34,20 +34,25 @@
             "label": "Content",
             "repeat": true,
             "fields": {
-              "page": {
+              "room": {
                 "type": "Link",
                 "config": {
-                  "label": "Page",
+                  "label": "Room",
                   "select": "document",
+                  "repeat": false,
                   "customtypes": [
                     {
-                      "id": "page",
+                      "id": "room",
                       "fields": [
                         "title",
+                        "beds",
+                        "guests",
+                        "bath",
+                        "description",
                         "preview_image",
-                        "excerpt",
                         "preview_vimeo",
-                        "preview_video"
+                        "preview_video",
+                        "video_poster_image"
                       ]
                     }
                   ]

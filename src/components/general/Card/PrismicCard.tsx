@@ -7,7 +7,6 @@
 import { isFilled } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import styles from "./Card.module.scss";
-import { PrismicRichText } from "@prismicio/react";
 import {
   ContentListSliceDefaultPrimaryContentItem,
 } from "../../../../prismicio-types";
@@ -42,15 +41,15 @@ const PrismicCard: React.FC<PrismicCardProps> = ({ item }) => {
     }
   }, []);
 
-  const contentField = item.page;
+  const contentField = item.room;
   // --------------
   // Below is an example of how to handle when the content list has more than one page type available (ie. you add POST to it)
-  // const contentField = isFilled.contentRelationship(item.post) ? item.post : item.page;
+  // const contentField = isFilled.contentRelationship(item.post) ? item.post : item.room;
   // --------------
   if (!isFilled.contentRelationship(contentField)) {
     return null;
   }
-  const { title, preview_image, excerpt, preview_video, video_poster_image } = contentField.data as any;
+  const { title, preview_image, preview_video, video_poster_image, beds, guests, bath } = contentField.data as any;
 
   const HolderClasses = classNames(styles.Holder, {
     [styles.HasBg]: hasBg,
@@ -95,18 +94,16 @@ const PrismicCard: React.FC<PrismicCardProps> = ({ item }) => {
             />
           )}
         </div>
-        {(isFilled.keyText(title) || isFilled.richText(excerpt)) && (
+        {(isFilled.keyText(title) && (
           <div className={styles.Content}>
             {isFilled.keyText(title) && (
               <h3 className={styles.Title}>{title}</h3>
             )}
-            {isFilled.richText(excerpt) && (
-              <div className={styles.Text}>
-                <PrismicRichText field={excerpt} />
-              </div>
-            )}
+            {isFilled.keyText(beds) && <p>{beds}</p>}
+            {isFilled.keyText(guests) && <p>{guests}</p>}
+            {isFilled.keyText(bath) && <p>{bath}</p>}
           </div>
-        )}
+        ))}
       </div>
     </PrismicNextLink>
   );

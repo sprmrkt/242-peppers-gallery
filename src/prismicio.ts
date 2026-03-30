@@ -21,6 +21,7 @@ const routes: Route[] = [
   // Examples:
   { type: "home", path: "/" },
   { type: "page", path: "/:uid" },
+  { type: "room", path: "/rooms/:uid" },
 ];
 
 /**

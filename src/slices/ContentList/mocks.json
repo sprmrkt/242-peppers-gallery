@@ -19,10 +19,10 @@
 						"__TYPE__": "GroupItemContent",
 						"value": [
 							[
-								"page",
+								"room",
 								{
-									"key": "b198f4e5-73e1-4aad-94c6-c86f2f146501",
 									"__TYPE__": "LinkContent",
+									"key": "c64ea699-d6d7-4673-ae82-0c9f45856219",
 									"value": {
 										"__TYPE__": "DocumentLink",
 										"id": "mock_document_id"
