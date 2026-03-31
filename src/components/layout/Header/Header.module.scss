@@ -9,14 +9,15 @@
   --my-margin: 2rem;
 
   padding: 2rem;
-  margin: 2rem;
+  margin: 0;
   position: fixed; // fixed, relative, sticky
-  border-radius: var(--border-radius-sm);
-  overflow: hidden;
+  border-radius: 0;
+  border-bottom: 1px solid var(--text-color);
+  overflow: visible;
   top: 0;
   left: 50%;
-  transform: translateX(calc(-50% - 2rem));
-  width: calc(100% - 2 * var(--my-margin));
+  transform: translateX(-50%);
+  width: 100%;
   max-width: calc(var(--site-max-width) + 2 * var(--my-margin));
 
   z-index: 100;
@@ -64,6 +65,13 @@
 }
 
 .Logo {
+
+  img {
+    height: 4rem;
+    width: auto;
+    display: block;
+  }
+
   svg {
     height: 2rem;
     width: auto;
@@ -84,7 +92,7 @@
     li {
       list-style: none;
       padding: 0;
-      @include type-sm;
+      @include type-base;
       @include font-heading;
       font-weight: normal;
       a {
