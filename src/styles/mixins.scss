@@ -148,7 +148,7 @@ $breakpoints: (
 
   font-family: inherit;
   @include type-base;
-  @include font-heading;
+  @include font-highlight;
   font-weight: 400;
   text-decoration: none;
   white-space: nowrap;

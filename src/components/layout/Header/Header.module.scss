@@ -25,7 +25,6 @@
   display: none;
   mix-blend-mode: normal; // difference is good if you want to remove the BG colour but still show text over various colors
   opacity: 1; // Important to keep for header transitions if you need them
-
   @include media(lg) {
     display: block;
 
@@ -92,8 +91,8 @@
     li {
       list-style: none;
       padding: 0;
-      @include type-base;
-      @include font-heading;
+      @include type-sm;
+      @include font-highlight;
       font-weight: normal;
       a {
         text-decoration: none;
