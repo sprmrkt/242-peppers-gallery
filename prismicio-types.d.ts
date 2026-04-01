@@ -447,7 +447,22 @@ export interface RoomDocumentDataFeaturesItem {
   feature: prismic.KeyTextField;
 }
 
-type RoomDocumentDataSlicesSlice = ImageGridSlice;
+/**
+ * Item in *Room → Images*
+ */
+export interface RoomDocumentDataImagesItem {
+  /**
+   * Image field in *Room → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.images[].image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+type RoomDocumentDataSlicesSlice = never;
 
 /**
  * Content for Room documents
@@ -535,6 +550,29 @@ interface RoomDocumentData {
     prismic.FieldState,
     never
   >;
+
+  /**
+   * Type field in *Room*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Room
+   * - **API ID Path**: room.type
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  type: prismic.SelectField<"Room" | "Suite", "filled">;
+
+  /**
+   * Images field in *Room*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: room.images[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  images: prismic.GroupField<Simplify<RoomDocumentDataImagesItem>>;
 
   /**
    * Slice Zone field in *Room*
@@ -938,6 +976,7 @@ export interface ContentListSliceDefaultPrimaryContentItem {
           "preview_vimeo",
           "preview_video",
           "video_poster_image",
+          "type",
         ];
       },
     ]
@@ -1830,6 +1869,7 @@ declare module "@prismicio/client" {
       RoomDocument,
       RoomDocumentData,
       RoomDocumentDataFeaturesItem,
+      RoomDocumentDataImagesItem,
       RoomDocumentDataSlicesSlice,
       AllDocumentTypes,
       AccordionSectionSlice,

@@ -76,15 +76,37 @@
           "repeat": false
         }
       },
+      "type": {
+        "type": "Select",
+        "config": {
+          "label": "Type",
+          "placeholder": "",
+          "options": ["Room", "Suite"],
+          "default_value": "Room"
+        }
+      },
+      "images": {
+        "type": "Group",
+        "config": {
+          "label": "Images",
+          "repeat": true,
+          "fields": {
+            "image": {
+              "type": "Image",
+              "config": {
+                "label": "Image",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {
-            "image_grid": {
-              "type": "SharedSlice"
-            }
-          }
+          "choices": {}
         }
       }
     },

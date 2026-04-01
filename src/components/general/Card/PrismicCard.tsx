@@ -49,9 +49,9 @@ const PrismicCard: React.FC<PrismicCardProps> = ({ item }) => {
   if (!isFilled.contentRelationship(contentField)) {
     return null;
   }
-  const { title, preview_image, preview_video, video_poster_image, beds, guests, bath } = contentField.data as any;
+  const { title, preview_image, preview_video, video_poster_image, beds, guests, bath, type } = contentField.data as any;
 
-  const HolderClasses = classNames(styles.Holder, {
+  const HolderClasses = classNames(styles.Holder, `is-${type.toLowerCase()}`, {
     [styles.HasBg]: hasBg,
   });
 

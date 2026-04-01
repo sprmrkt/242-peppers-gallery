@@ -52,7 +52,8 @@
                         "preview_image",
                         "preview_vimeo",
                         "preview_video",
-                        "video_poster_image"
+                        "video_poster_image",
+                        "type"
                       ]
                     }
                   ]
