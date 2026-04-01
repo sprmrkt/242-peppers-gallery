@@ -12,6 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "heading_2": {
+          "type": "Text",
+          "config": {
+            "label": "Heading 2",
+            "placeholder": ""
+          }
+        },
         "image": {
           "type": "Image",
           "config": {
@@ -71,6 +78,15 @@
               "Variation 2"
             ],
             "default_value": "Default"
+          }
+        },
+        "inset_image": {
+          "type": "Boolean",
+          "config": {
+            "label": "Inset image",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
           }
         }
       },

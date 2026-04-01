@@ -26,12 +26,20 @@
   max-width: var(--site-max-width);
   margin: 0 auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--grid-gap);
 }
 
 .ImageHolder {
   width: 100%;
   border-radius: var(--general-border-radius);
   overflow: hidden;
+  &.IsInset {
+    max-width: 1000px;
+    margin: 0 auto;
+    // OR you could set margins left and right and remove max-width instead
+  }
 
   img {
     display: block;

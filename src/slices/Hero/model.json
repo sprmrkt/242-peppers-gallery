@@ -69,6 +69,15 @@
               }
             }
           }
+        },
+        "inset_image": {
+          "type": "Boolean",
+          "config": {
+            "label": "Inset image",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
         }
       },
       "items": {}

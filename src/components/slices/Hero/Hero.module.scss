@@ -28,6 +28,15 @@
   gap: var(--grid-gap);
 }
 
+.Media {
+  &.IsInset {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    // OR you could set margins left and right and remove max-width instead
+  }
+}
+
 .Title {
 }
 

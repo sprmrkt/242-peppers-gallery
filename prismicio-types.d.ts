@@ -70,13 +70,11 @@ type ContentRelationshipFieldWithData<
 }[Exclude<TCustomType[number], string>["id"]];
 
 type HomeDocumentDataSlicesSlice =
-  | CardsSlice
+  | ListSlice
   | FeatureSlice
   | ContentListSlice
   | LargeMediaSlice
   | ImageGridSlice
-  | SimpleHeroSlice
-  | AccordionSectionSlice
   | HeroSlice
   | TextSlice;
 
@@ -338,13 +336,11 @@ export type LayoutDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
-  | CardsSlice
+  | ListSlice
   | FeatureSlice
   | ContentListSlice
-  | AccordionSectionSlice
   | LargeMediaSlice
   | ImageGridSlice
-  | SimpleHeroSlice
   | HeroSlice
   | TextSlice;
 
@@ -816,268 +812,6 @@ export type AllDocumentTypes =
   | RoomsListingDocument;
 
 /**
- * Item in *AccordionSection → Default → Primary → Items*
- */
-export interface AccordionSectionSliceDefaultPrimaryItemsItem {
-  /**
-   * Title field in *AccordionSection → Default → Primary → Items*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: accordion_section.default.primary.items[].title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Content field in *AccordionSection → Default → Primary → Items*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Accordion content
-   * - **API ID Path**: accordion_section.default.primary.items[].content
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  content: prismic.RichTextField;
-}
-
-/**
- * Primary content in *AccordionSection → Default → Primary*
- */
-export interface AccordionSectionSliceDefaultPrimary {
-  /**
-   * H2 field in *AccordionSection → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: If not filled then title will be h2
-   * - **API ID Path**: accordion_section.default.primary.heading_2
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  heading_2: prismic.RichTextField;
-
-  /**
-   * Title field in *AccordionSection → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: accordion_section.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Items field in *AccordionSection → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: accordion_section.default.primary.items[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  items: prismic.GroupField<
-    Simplify<AccordionSectionSliceDefaultPrimaryItemsItem>
-  >;
-
-  /**
-   * Background Colour field in *AccordionSection → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Default
-   * - **API ID Path**: accordion_section.default.primary.background_colour
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  background_colour: prismic.SelectField<
-    "Default" | "Variation 1" | "Variation 2",
-    "filled"
-  >;
-}
-
-/**
- * Default variation for AccordionSection Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type AccordionSectionSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<AccordionSectionSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *AccordionSection*
- */
-type AccordionSectionSliceVariation = AccordionSectionSliceDefault;
-
-/**
- * AccordionSection Shared Slice
- *
- * - **API ID**: `accordion_section`
- * - **Description**: AccordionSection
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type AccordionSectionSlice = prismic.SharedSlice<
-  "accordion_section",
-  AccordionSectionSliceVariation
->;
-
-/**
- * Item in *Cards → Default → Primary → Cards*
- */
-export interface CardsSliceDefaultPrimaryCardsItem {
-  /**
-   * Title field in *Cards → Default → Primary → Cards*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cards.default.primary.cards[].title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Text field in *Cards → Default → Primary → Cards*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cards.default.primary.cards[].text
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  text: prismic.RichTextField;
-
-  /**
-   * CTA field in *Cards → Default → Primary → Cards*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cards.default.primary.cards[].cta
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  cta: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
-
-  /**
-   * Icon (from fonts.google.com/icons) field in *Cards → Default → Primary → Cards*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cards.default.primary.cards[].icon
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  icon: prismic.ImageField<never>;
-}
-
-/**
- * Primary content in *Cards → Default → Primary*
- */
-export interface CardsSliceDefaultPrimary {
-  /**
-   * Heading 2 field in *Cards → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cards.default.primary.heading_2
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  heading_2: prismic.KeyTextField;
-
-  /**
-   * Title field in *Cards → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cards.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Description field in *Cards → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cards.default.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Background Colour field in *Cards → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Default
-   * - **API ID Path**: cards.default.primary.background_colour
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  background_colour: prismic.SelectField<
-    "Default" | "Variation 1" | "Variation 2",
-    "filled"
-  >;
-
-  /**
-   * Cards Colour field in *Cards → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Default
-   * - **API ID Path**: cards.default.primary.cards_colour
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  cards_colour: prismic.SelectField<
-    "Default" | "Variation 1" | "Variation 2",
-    "filled"
-  >;
-
-  /**
-   * Columns field in *Cards → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: *None*
-   * - **Default Value**: Three
-   * - **API ID Path**: cards.default.primary.columns
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  columns: prismic.SelectField<"Three" | "Four", "filled">;
-
-  /**
-   * Cards field in *Cards → Default → Primary*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: cards.default.primary.cards[]
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
-   */
-  cards: prismic.GroupField<Simplify<CardsSliceDefaultPrimaryCardsItem>>;
-}
-
-/**
- * Default variation for Cards Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type CardsSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<CardsSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Cards*
- */
-type CardsSliceVariation = CardsSliceDefault;
-
-/**
- * Cards Shared Slice
- *
- * - **API ID**: `cards`
- * - **Description**: Cards
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type CardsSlice = prismic.SharedSlice<"cards", CardsSliceVariation>;
-
-/**
  * Item in *ContentList → Default → Primary → Content*
  */
 export interface ContentListSliceDefaultPrimaryContentItem {
@@ -1202,6 +936,21 @@ export type ContentListSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Feature → Default → Primary → List*
+ */
+export interface FeatureSliceDefaultPrimaryListItem {
+  /**
+   * List item field in *Feature → Default → Primary → List*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature.default.primary.list[].list_item
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  list_item: prismic.RichTextField;
+}
+
+/**
  * Primary content in *Feature → Default → Primary*
  */
 export interface FeatureSliceDefaultPrimary {
@@ -1214,16 +963,6 @@ export interface FeatureSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   heading_2: prismic.RichTextField;
-
-  /**
-   * Title field in *Feature → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: feature.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  title: prismic.KeyTextField;
 
   /**
    * Text field in *Feature → Default → Primary*
@@ -1287,17 +1026,6 @@ export interface FeatureSliceDefaultPrimary {
   video_ratio: prismic.NumberField;
 
   /**
-   * Is Hero field in *Feature → Default → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: feature.default.primary.is_hero
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  is_hero: prismic.BooleanField;
-
-  /**
    * No Padding field in *Feature → Default → Primary*
    *
    * - **Field Type**: Boolean
@@ -1321,6 +1049,26 @@ export interface FeatureSliceDefaultPrimary {
     "Default" | "Variation 1" | "Variation 2",
     "filled"
   >;
+
+  /**
+   * List title field in *Feature → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature.default.primary.list_title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  list_title: prismic.KeyTextField;
+
+  /**
+   * List field in *Feature → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature.default.primary.list[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  list: prismic.GroupField<Simplify<FeatureSliceDefaultPrimaryListItem>>;
 }
 
 /**
@@ -1434,6 +1182,17 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   details: prismic.GroupField<Simplify<HeroSliceDefaultPrimaryDetailsItem>>;
+
+  /**
+   * Inset image field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: hero.default.primary.inset_image
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  inset_image: prismic.BooleanField;
 }
 
 /**
@@ -1672,6 +1431,16 @@ export type ImageGridSlice = prismic.SharedSlice<
  */
 export interface LargeMediaSliceDefaultPrimary {
   /**
+   * Heading 2 field in *LargeMedia → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: large_media.default.primary.heading_2
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  heading_2: prismic.KeyTextField;
+
+  /**
    * Image field in *LargeMedia → Default → Primary*
    *
    * - **Field Type**: Image
@@ -1746,6 +1515,17 @@ export interface LargeMediaSliceDefaultPrimary {
     "Default" | "Variation 1" | "Variation 2",
     "filled"
   >;
+
+  /**
+   * Inset image field in *LargeMedia → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: large_media.default.primary.inset_image
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  inset_image: prismic.BooleanField;
 }
 
 /**
@@ -1779,93 +1559,101 @@ export type LargeMediaSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *SimpleHero → Default → Primary*
+ * Item in *List → Default → Primary → List item*
  */
-export interface SimpleHeroSliceDefaultPrimary {
+export interface ListSliceDefaultPrimaryListItemItem {
   /**
-   * H1 field in *SimpleHero → Default → Primary*
+   * Heading 3 field in *List → Default → Primary → List item*
    *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: If not filled then title will be h1
-   * - **API ID Path**: simple_hero.default.primary.heading_1
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: list.default.primary.list_item[].heading_3
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  heading_1: prismic.RichTextField;
+  heading_3: prismic.KeyTextField;
 
   /**
-   * Title field in *SimpleHero → Default → Primary*
+   * Text field in *List → Default → Primary → List item*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: simple_hero.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Text field in *SimpleHero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Short description text
-   * - **API ID Path**: simple_hero.default.primary.text
+   * - **API ID Path**: list.default.primary.list_item[].text
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   text: prismic.RichTextField;
 
   /**
-   * Background Colour field in *SimpleHero → Default → Primary*
+   * Extra text field in *List → Default → Primary → List item*
    *
-   * - **Field Type**: Select
+   * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **Default Value**: Default
-   * - **API ID Path**: simple_hero.default.primary.background_colour
-   * - **Documentation**: https://prismic.io/docs/fields/select
+   * - **API ID Path**: list.default.primary.list_item[].extra_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
-  background_colour: prismic.SelectField<
-    "Default" | "Variation 1" | "Variation 2",
-    "filled"
-  >;
-
-  /**
-   * Image field in *SimpleHero → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: simple_hero.default.primary.image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
+  extra_text: prismic.RichTextField;
 }
 
 /**
- * Default variation for SimpleHero Slice
+ * Primary content in *List → Default → Primary*
+ */
+export interface ListSliceDefaultPrimary {
+  /**
+   * Heading 2 field in *List → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: list.default.primary.heading_2
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  heading_2: prismic.KeyTextField;
+
+  /**
+   * List item field in *List → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: list.default.primary.list_item[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  list_item: prismic.GroupField<Simplify<ListSliceDefaultPrimaryListItemItem>>;
+
+  /**
+   * Cta field in *List → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: list.default.primary.cta
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  cta: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for List Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type SimpleHeroSliceDefault = prismic.SharedSliceVariation<
+export type ListSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Simplify<SimpleHeroSliceDefaultPrimary>,
+  Simplify<ListSliceDefaultPrimary>,
   never
 >;
 
 /**
- * Slice variation for *SimpleHero*
+ * Slice variation for *List*
  */
-type SimpleHeroSliceVariation = SimpleHeroSliceDefault;
+type ListSliceVariation = ListSliceDefault;
 
 /**
- * SimpleHero Shared Slice
+ * List Shared Slice
  *
- * - **API ID**: `simple_hero`
- * - **Description**: SimpleHero
+ * - **API ID**: `list`
+ * - **Description**: List
  * - **Documentation**: https://prismic.io/docs/slices
  */
-export type SimpleHeroSlice = prismic.SharedSlice<
-  "simple_hero",
-  SimpleHeroSliceVariation
->;
+export type ListSlice = prismic.SharedSlice<"list", ListSliceVariation>;
 
 /**
  * Primary content in *Text → Default → Primary*
@@ -2002,22 +1790,13 @@ declare module "@prismicio/client" {
       RoomsListingDocumentData,
       RoomsListingDocumentDataSlicesSlice,
       AllDocumentTypes,
-      AccordionSectionSlice,
-      AccordionSectionSliceDefaultPrimaryItemsItem,
-      AccordionSectionSliceDefaultPrimary,
-      AccordionSectionSliceVariation,
-      AccordionSectionSliceDefault,
-      CardsSlice,
-      CardsSliceDefaultPrimaryCardsItem,
-      CardsSliceDefaultPrimary,
-      CardsSliceVariation,
-      CardsSliceDefault,
       ContentListSlice,
       ContentListSliceDefaultPrimaryContentItem,
       ContentListSliceDefaultPrimary,
       ContentListSliceVariation,
       ContentListSliceDefault,
       FeatureSlice,
+      FeatureSliceDefaultPrimaryListItem,
       FeatureSliceDefaultPrimary,
       FeatureSliceVariation,
       FeatureSliceDefault,
@@ -2035,10 +1814,11 @@ declare module "@prismicio/client" {
       LargeMediaSliceDefaultPrimary,
       LargeMediaSliceVariation,
       LargeMediaSliceDefault,
-      SimpleHeroSlice,
-      SimpleHeroSliceDefaultPrimary,
-      SimpleHeroSliceVariation,
-      SimpleHeroSliceDefault,
+      ListSlice,
+      ListSliceDefaultPrimaryListItemItem,
+      ListSliceDefaultPrimary,
+      ListSliceVariation,
+      ListSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceVariation,

@@ -12,7 +12,6 @@
   margin: 2rem;
   position: fixed; // fixed, relative, sticky
   border-radius: var(--border-radius-sm);
-  overflow: hidden;
   top: 0;
   left: 50%;
   transform: translateX(calc(-50% - 2rem));
@@ -44,6 +43,7 @@
   inset: 0;
   z-index: -1;
   background-color: var(--bg-color);
+  border-radius: var(--border-radius-sm);
   // backdrop-filter: blur(10px); Nice effect on transparent BG colours
 
   // Some MAD people like to animate in a BG as you leave the top of the page.

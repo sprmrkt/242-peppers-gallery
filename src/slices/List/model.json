@@ -1,0 +1,71 @@
+{
+  "id": "list",
+  "type": "SharedSlice",
+  "name": "List",
+  "description": "List",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading_2": {
+          "type": "Text",
+          "config": {
+            "label": "Heading 2",
+            "placeholder": ""
+          }
+        },
+        "list_item": {
+          "type": "Group",
+          "config": {
+            "label": "List item",
+            "repeat": true,
+            "fields": {
+              "heading_3": {
+                "type": "Text",
+                "config": {
+                  "label": "Heading 3",
+                  "placeholder": ""
+                }
+              },
+              "text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Text",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "multi": "paragraph,strong,em,hyperlink"
+                }
+              },
+              "extra_text": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Extra text",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "single": "paragraph,hyperlink"
+                }
+              }
+            }
+          }
+        },
+        "cta": {
+          "type": "Link",
+          "config": {
+            "label": "Cta",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

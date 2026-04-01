@@ -21,13 +21,6 @@
             "single": "heading2"
           }
         },
-        "title": {
-          "type": "Text",
-          "config": {
-            "label": "Title",
-            "placeholder": ""
-          }
-        },
         "text": {
           "type": "StructuredText",
           "config": {
@@ -81,15 +74,6 @@
             "placeholder": "If the ratio of the video is not 16:9 then enter it here as a number"
           }
         },
-        "is_hero": {
-          "type": "Boolean",
-          "config": {
-            "label": "Is Hero",
-            "placeholder_false": "false",
-            "placeholder_true": "true",
-            "default_value": false
-          }
-        },
         "no_padding": {
           "type": "Boolean",
           "config": {
@@ -110,6 +94,31 @@
               "Variation 2"
             ],
             "default_value": "Default"
+          }
+        },
+        "list_title": {
+          "type": "Text",
+          "config": {
+            "label": "List title",
+            "placeholder": ""
+          }
+        },
+        "list": {
+          "type": "Group",
+          "config": {
+            "label": "List",
+            "repeat": true,
+            "fields": {
+              "list_item": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "List item",
+                  "placeholder": "",
+                  "allowTargetBlank": true,
+                  "single": "paragraph,strong,em,hyperlink"
+                }
+              }
+            }
           }
         }
       },

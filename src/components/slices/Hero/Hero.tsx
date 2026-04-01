@@ -8,6 +8,7 @@ import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import styles from "./Hero.module.scss";
 import { HeroProps } from "@/slices/Hero";
 import VimeoBackground from "@/components/general/VimeoBackground/VimeoBackground";
+import classNames from "classnames";
 
 const Hero = ({
                 heading_1,
@@ -16,14 +17,19 @@ const Hero = ({
                 background_video_from_media_library,
                 video_ratio,
                 details,
+                inset_image,
               }: HeroProps["slice"]["primary"]) => {
+
+  const mediaClasses = classNames(styles.Media, {
+    [styles.IsInset]: inset_image,
+  });
   return (
     <div className={styles.Holder}>
       <div className={styles.Inner}>
         <div className={styles.Title}>
-            {isFilled.richText(heading_1) && <PrismicRichText field={heading_1} />}
+          {isFilled.richText(heading_1) && <PrismicRichText field={heading_1} />}
         </div>
-        <div className={styles.Media}>
+        <div className={mediaClasses}>
           {isFilled.linkToMedia(background_video_from_media_library) && (
             <video
               className={styles.LibraryVideo}
@@ -57,8 +63,8 @@ const Hero = ({
         </div>
         <div className={styles.Details}>
           {details && details.length > 0 && details.map((detail, index) => {
-            if ( !isFilled.richText(detail.text) ) return null;
-            return <PrismicRichText key={index} field={detail.text} />
+            if (!isFilled.richText(detail.text)) return null;
+            return <PrismicRichText key={index} field={detail.text} />;
           })}
         </div>
       </div>

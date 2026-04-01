@@ -55,10 +55,15 @@
   list-style: none;
   margin: 0;
   padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .DropdownItem {
   margin: 0;
+  width: 100%;
+  text-align: left;
 }
 
 .DropdownLink {
