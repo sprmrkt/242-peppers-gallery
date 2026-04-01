@@ -134,6 +134,24 @@
                   ],
                   "default_value": "Natural"
                 }
+              },
+              "margin_left": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Margin left",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              },
+              "margin_right": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Margin right",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
               }
             }
           }

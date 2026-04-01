@@ -1388,6 +1388,28 @@ export interface ImageGridSliceDefaultPrimaryImagesItem {
     "Natural" | "Portrait" | "Landscape" | "Square",
     "filled"
   >;
+
+  /**
+   * Margin left field in *ImageGrid → Default → Primary → Images*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: image_grid.default.primary.images[].margin_left
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  margin_left: prismic.BooleanField;
+
+  /**
+   * Margin right field in *ImageGrid → Default → Primary → Images*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: image_grid.default.primary.images[].margin_right
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  margin_right: prismic.BooleanField;
 }
 
 /**
