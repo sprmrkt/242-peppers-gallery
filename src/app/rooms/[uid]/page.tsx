@@ -7,6 +7,8 @@ import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import { defaultSharingImage } from "@/data/sharing";
 import { metadata } from "@/app/layout";
+import RoomsHeader from "@/components/layout/RoomsHeader/RoomsHeader";
+import RoomPage from "@/pages/RoomPage/RoomPage";
 
 type Params = Promise<{ uid: string }>;
 
@@ -44,14 +46,12 @@ export default async function Page(props: { params: Params }) {
   const uid = params.uid;
 
   const page = await client.getByUID("room", uid).catch(() => notFound());
+  const listingPage = await client.getSingle("rooms_listing").catch(() => notFound());
 
   return (
     <div>
-      <h1 style={{marginTop: "100px"}}>{page.data.title}</h1>
-      <p>{page.data.beds}</p>
-      <p>{page.data.guests}</p>
-      <p>{page.data.bath}</p>
-      <SliceZone slices={page.data.slices} components={components} />
+      <RoomsHeader title={listingPage.data.title} description={listingPage.data.description} isPage={true}/>
+      <RoomPage page={page}/>
     </div>
   );
 }

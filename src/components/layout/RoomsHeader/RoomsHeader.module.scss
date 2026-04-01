@@ -1,0 +1,19 @@
+.Holder {
+  padding: calc(var(--header-height) + var(--slice-vertical-padding)) var(--site-margin) var(--slice-vertical-padding);
+  background-color: transparent;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  @include media(md) {
+    padding: calc(var(--header-height) + var(--slice-vertical-padding-md)) var(--site-margin-md) var(--slice-vertical-padding-md);
+  }
+}
+
+.Title {
+  @include h1;
+}
+
+.Filters {
+  display: flex;
+  gap: 1rem;
+}

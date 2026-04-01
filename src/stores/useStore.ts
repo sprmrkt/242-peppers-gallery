@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
-interface MapSearchState {
-  openPopup: string | boolean;
-  setOpenPopup: (popup: string | boolean) => void;
+interface FilterState {
+  globalCurrentFilterType: "All" | "Room" | "Suite";
+  setGlobalCurrentFilterType: (globalCurrentFilterType: "All" | "Room" | "Suite") => void;
 }
 
-export const useMapSearchStore = create<MapSearchState>()((set) => ({
-  openPopup: false,
-  setOpenPopup: (popup) => set(() => ({ openPopup: popup })),
+export const useFilterStore = create<FilterState>()((set) => ({
+  globalCurrentFilterType: "All",
+  setGlobalCurrentFilterType: (globalCurrentFilterType) => set({ globalCurrentFilterType }),
 }));

@@ -1,0 +1,104 @@
+// WHO CAN EDIT:
+// Link href: Junior
+// Duplicate and use for another instance: Mid
+// Adding search highlighting for a search hit instance: Mid
+// Structure: Senior
+"use client";
+import { isFilled } from "@prismicio/client";
+import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import styles from "./Card.module.scss";
+import {
+  RoomDocument,
+} from "../../../../prismicio-types";
+import { useEffect, useRef, useState } from "react";
+import classNames from "classnames";
+
+interface PrismicCardForDocsProps {
+  item: RoomDocument;
+}
+
+const hasBg = false;
+
+const PrismicCardForDocs: React.FC<PrismicCardForDocsProps> = ({ item }) => {
+  const [showFallback, setShowFallback] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const playPromise = video.play();
+
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        console.log("Autoplay was prevented by the browser.");
+        // Autoplay was blocked, show fallback image
+        setShowFallback(true);
+      });
+    } else {
+      console.log("Autoplay was allowed by the browser.");
+      setShowFallback(false);
+    }
+  }, []);
+
+  const { title, preview_image, preview_video, video_poster_image, beds, guests, bath, type } = item.data as any;
+
+  const HolderClasses = classNames(styles.Holder, `is-${type.toLowerCase()}`, {
+    [styles.HasBg]: hasBg,
+  });
+
+  return (
+    <PrismicNextLink document={item} className={HolderClasses}>
+      <div className={styles.Inner}>
+        <div className={styles.Image}>
+          {isFilled.linkToMedia(preview_video) && !showFallback && (
+            <video
+              ref={videoRef}
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls={false}
+              poster={video_poster_image?.url || undefined}
+            >
+              <source
+                src={preview_video?.url || undefined}
+                type="video/mp4"
+              />
+            </video>
+          )}
+          {isFilled.image(video_poster_image) && showFallback && (
+            <PrismicNextImage
+              className={styles.VideoFallbackImage}
+              field={video_poster_image}
+              loading="lazy"
+              priority={false}
+              fallbackAlt=""
+            />
+          )}
+          {isFilled.image(preview_image) && !isFilled.linkToMedia(preview_video) && (
+            <PrismicNextImage
+              className={styles.StandardImage}
+              field={preview_image}
+              loading="lazy"
+              priority={false}
+              fallbackAlt=""
+            />
+          )}
+        </div>
+        {(isFilled.keyText(title) && (
+          <div className={styles.Content}>
+            {isFilled.keyText(title) && (
+              <h3 className={styles.Title}>{title}</h3>
+            )}
+            {isFilled.keyText(beds) && <p>{beds}</p>}
+            {isFilled.keyText(guests) && <p>{guests}</p>}
+            {isFilled.keyText(bath) && <p>{bath}</p>}
+          </div>
+        ))}
+      </div>
+    </PrismicNextLink>
+  );
+};
+
+export default PrismicCardForDocs;

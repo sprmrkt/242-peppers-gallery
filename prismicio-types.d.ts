@@ -279,7 +279,46 @@ interface LayoutDocumentData {
    * - **Tab**: Footer
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  social_links: prismic.GroupField<Simplify<LayoutDocumentDataSocialLinksItem>>;
+  social_links: prismic.GroupField<
+    Simplify<LayoutDocumentDataSocialLinksItem>
+  >; /**
+   * CTA title field in *Layout*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.cta_title
+   * - **Tab**: CTA
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  cta_title: prismic.KeyTextField;
+
+  /**
+   * CTA text field in *Layout*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.cta_text
+   * - **Tab**: CTA
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  cta_text: prismic.RichTextField;
+
+  /**
+   * CTA link field in *Layout*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.cta_link
+   * - **Tab**: CTA
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  cta_link: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
@@ -682,11 +721,99 @@ interface RoomDocumentData {
 export type RoomDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<RoomDocumentData>, "room", Lang>;
 
+type RoomsListingDocumentDataSlicesSlice = never;
+
+/**
+ * Content for Rooms Listing documents
+ */
+interface RoomsListingDocumentData {
+  /**
+   * Title field in *Rooms Listing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rooms_listing.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Rooms Listing*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rooms_listing.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Slice Zone field in *Rooms Listing*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rooms_listing.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<RoomsListingDocumentDataSlicesSlice>; /**
+   * Meta Title field in *Rooms Listing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: rooms_listing.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Rooms Listing*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: rooms_listing.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Rooms Listing*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rooms_listing.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Rooms Listing document from Prismic
+ *
+ * - **API ID**: `rooms_listing`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type RoomsListingDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<RoomsListingDocumentData>,
+    "rooms_listing",
+    Lang
+  >;
+
 export type AllDocumentTypes =
   | HomeDocument
   | LayoutDocument
   | PageDocument
-  | RoomDocument;
+  | RoomDocument
+  | RoomsListingDocument;
 
 /**
  * Item in *AccordionSection → Default → Primary → Items*
@@ -1871,6 +1998,9 @@ declare module "@prismicio/client" {
       RoomDocumentDataFeaturesItem,
       RoomDocumentDataImagesItem,
       RoomDocumentDataSlicesSlice,
+      RoomsListingDocument,
+      RoomsListingDocumentData,
+      RoomsListingDocumentDataSlicesSlice,
       AllDocumentTypes,
       AccordionSectionSlice,
       AccordionSectionSliceDefaultPrimaryItemsItem,
