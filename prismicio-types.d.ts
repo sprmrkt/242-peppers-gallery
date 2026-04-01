@@ -1188,6 +1188,21 @@ export type FeatureSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Hero → Default → Primary → Details*
+ */
+export interface HeroSliceDefaultPrimaryDetailsItem {
+  /**
+   * Text field in *Hero → Default → Primary → Details*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.details[].text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+}
+
+/**
  * Primary content in *Hero → Default → Primary*
  */
 export interface HeroSliceDefaultPrimary {
@@ -1200,44 +1215,6 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   heading_1: prismic.RichTextField;
-
-  /**
-   * Title field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  title: prismic.RichTextField;
-
-  /**
-   * Text field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: hero.default.primary.text
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  text: prismic.RichTextField;
-
-  /**
-   * CTA field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: Optional ctas
-   * - **API ID Path**: hero.default.primary.cta
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  cta: prismic.Repeatable<
-    prismic.LinkField<
-      string,
-      string,
-      unknown,
-      prismic.FieldState,
-      "Primary" | "Secondary"
-    >
-  >;
 
   /**
    * Background Image field in *Hero → Default → Primary*
@@ -1281,6 +1258,16 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/number
    */
   video_ratio: prismic.NumberField;
+
+  /**
+   * Details field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.details[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  details: prismic.GroupField<Simplify<HeroSliceDefaultPrimaryDetailsItem>>;
 }
 
 /**
@@ -1745,17 +1732,6 @@ export interface TextSliceDefaultPrimary {
   >;
 
   /**
-   * Text Size field in *Text → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: Choose a text size
-   * - **Default Value**: Default
-   * - **API ID Path**: text.default.primary.text_size
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  text_size: prismic.SelectField<"Default" | "Large" | "XL", "filled">;
-
-  /**
    * Background Color field in *Text → Default → Primary*
    *
    * - **Field Type**: Select
@@ -1765,20 +1741,6 @@ export interface TextSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/select
    */
   background_color: prismic.SelectField<
-    "Default" | "Variation 1" | "Variation 2",
-    "filled"
-  >;
-
-  /**
-   * Inner Background Colour field in *Text → Default → Primary*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: This will make the text sit inside a coloured rectangle
-   * - **Default Value**: Default
-   * - **API ID Path**: text.default.primary.inner_background_colour
-   * - **Documentation**: https://prismic.io/docs/fields/select
-   */
-  inner_background_colour: prismic.SelectField<
     "Default" | "Variation 1" | "Variation 2",
     "filled"
   >;
@@ -1868,6 +1830,7 @@ declare module "@prismicio/client" {
       FeatureSliceVariation,
       FeatureSliceDefault,
       HeroSlice,
+      HeroSliceDefaultPrimaryDetailsItem,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,

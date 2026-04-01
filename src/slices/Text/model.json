@@ -55,37 +55,11 @@
             ]
           }
         },
-        "text_size": {
-          "type": "Select",
-          "config": {
-            "label": "Text Size",
-            "placeholder": "Choose a text size",
-            "options": [
-              "Default",
-              "Large",
-              "XL"
-            ],
-            "default_value": "Default"
-          }
-        },
         "background_color": {
           "type": "Select",
           "config": {
             "label": "Background Color",
             "placeholder": "Choose a background colour scheme",
-            "options": [
-              "Default",
-              "Variation 1",
-              "Variation 2"
-            ],
-            "default_value": "Default"
-          }
-        },
-        "inner_background_colour": {
-          "type": "Select",
-          "config": {
-            "label": "Inner Background Colour",
-            "placeholder": "This will make the text sit inside a coloured rectangle",
             "options": [
               "Default",
               "Variation 1",

@@ -106,7 +106,7 @@
   --var-1-input-text-color: var(--var-1-text);
   --var-1-error-color: var(--var-1-text);
 
-  --var-2-text: var(--white);
+  --var-2-text: var(--eucalyptus);
   --var-2-bg: #C6E2E7;
   --var-2-bg-tint: #{color.scale(#C6E2E7, $lightness: 10%)};
   --var-2-text-tint: #{color.scale(#FDF5E6, $lightness: -10%)};

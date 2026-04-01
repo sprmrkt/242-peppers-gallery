@@ -10,44 +10,20 @@ import { HeroProps } from "@/slices/Hero";
 import VimeoBackground from "@/components/general/VimeoBackground/VimeoBackground";
 
 const Hero = ({
-                text,
-                title,
                 heading_1,
                 background_image,
                 background_video,
                 background_video_from_media_library,
                 video_ratio,
-                cta,
+                details,
               }: HeroProps["slice"]["primary"]) => {
   return (
     <div className={styles.Holder}>
       <div className={styles.Inner}>
-        <div className={styles.ContentHolder}>
-          <div className={styles.Content}>
-            {isFilled.richText(heading_1) &&
-              <div className={styles.Subheading}><PrismicRichText field={heading_1} /></div>}
-            {!isFilled.richText(heading_1) && isFilled.richText(title) &&
-              <h1 className={styles.Title}><PrismicText field={title} /></h1>}
-            {isFilled.richText(heading_1) && isFilled.richText(title) &&
-              <p className={styles.Title}><PrismicText field={title} /></p>}
-            {isFilled.richText(text) && <div className={styles.Text}><PrismicRichText field={text} /></div>}
-            {Array.isArray(cta) && cta.length > 0 && isFilled.link(cta[0]) && (
-              <div className={styles.LinkListHolder}>
-                {cta.map(
-                  (link, index) =>
-                    isFilled.link(link) && (
-                      <PrismicNextLink
-                        className={`${link.variant ?? ""} button inverse`}
-                        field={link}
-                        key={index}
-                      />
-                    ),
-                )}
-              </div>
-            )}
-          </div>
+        <div className={styles.Title}>
+            {isFilled.richText(heading_1) && <PrismicRichText field={heading_1} />}
         </div>
-        <div className={styles.Background}>
+        <div className={styles.Media}>
           {isFilled.linkToMedia(background_video_from_media_library) && (
             <video
               className={styles.LibraryVideo}
@@ -78,6 +54,12 @@ const Hero = ({
             !isFilled.embed(background_video) && (
               <PrismicNextImage field={background_image} fallbackAlt="" />
             )}
+        </div>
+        <div className={styles.Details}>
+          {details && details.length > 0 && details.map((detail, index) => {
+            if ( !isFilled.richText(detail.text) ) return null;
+            return <PrismicRichText key={index} field={detail.text} />
+          })}
         </div>
       </div>
     </div>

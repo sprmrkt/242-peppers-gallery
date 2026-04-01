@@ -10,10 +10,16 @@
   min-height: auto;
   padding: var(--slice-vertical-padding) var(--site-margin);
   border-radius: 0;
-  color: var(--text-color);
   background-color: transparent;
   @include media(md) {
     padding: var(--slice-vertical-padding-md) var(--site-margin-md);
+  }
+
+  &.HasBg {
+    padding: 0 var(--site-margin);
+    @include media(md) {
+      padding: 0 var(--site-margin-md);
+    }
   }
 }
 
@@ -22,12 +28,9 @@
   max-width: var(--site-max-width);
   margin: 0 auto;
   &.InnerBg {
-    color: var(--text-color);
-    background-color: var(--bg-color);
-    border-radius: var(--border-radius-md);
-    padding: var(--site-margin);
+    padding: var(--slice-vertical-padding) var(--site-margin);
     @include media(md) {
-      padding: var(--site-margin-md);
+      padding: var(--slice-vertical-padding-md) var(--site-margin-md);
     }
   }
 }
@@ -57,39 +60,6 @@
   > :last-child {
     margin-bottom: 0;
   }
-
-  &.Large {
-    p,
-    li,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      @include type-lg;
-    }
-  }
-
-  &.XL {
-    @include media(md) {
-      max-width: 75rem;
-      text-align: left;
-    }
-    p,
-    li {
-      @include type-xl;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      @include subheadings;
-    }
-  }
 }
 
 .LinkListHolder {
@@ -102,9 +72,6 @@
   margin-top: var(--spacing-unit);
 }
 
-.Subheading {
-  h2 {
-    @include subheadings;
-  }
+.Heading {
 }
 
