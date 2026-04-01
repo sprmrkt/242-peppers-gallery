@@ -10,7 +10,6 @@ import classNames from "classnames";
 import { bgNameToClass } from "@/utils/helpers";
 
 const Feature = ({
-                   title,
                    text,
                    image,
                    video,
@@ -19,12 +18,10 @@ const Feature = ({
                    heading_2,
                    background_colour,
                    no_padding,
-                   is_hero,
                    image_position,
                  }: FeatureProps["slice"]["primary"]) => {
   const HolderClasses = classNames(styles.Holder, bgNameToClass(background_colour), {
     [styles.NoPadding]: no_padding,
-    [styles.IsHero]: is_hero,
     [styles.ImageRight]: image_position === "Right",
     [styles.ImageLeft]: image_position === "Left",
   });
@@ -33,19 +30,8 @@ const Feature = ({
       <div className={styles.Inner}>
         <div className={styles.Content}>
 
-          {!is_hero && <>
-            {isFilled.richText(heading_2) &&
-              <div className={styles.Subheading}><PrismicRichText field={heading_2} /></div>}
-            {!isFilled.richText(heading_2) && isFilled.keyText(title) && <h2 className={styles.Title}>{title}</h2>}
-          </>}
-
-          {is_hero && <>
-            {isFilled.richText(heading_2) &&
-              <div className={styles.Subheading}><h1><PrismicText field={heading_2} /></h1></div>}
-            {!isFilled.richText(heading_2) && isFilled.keyText(title) && <h1 className={styles.Title}>{title}</h1>}
-          </>}
-
-          {isFilled.richText(heading_2) && isFilled.keyText(title) && <p className={styles.Title}>{title}</p>}
+          {isFilled.richText(heading_2) &&
+            <div className={styles.Subheading}><PrismicRichText field={heading_2} /></div>}
 
           {isFilled.richText(text) && (
             <div className={styles.Text}>

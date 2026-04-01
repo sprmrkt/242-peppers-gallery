@@ -11,6 +11,7 @@ interface Props {
 }
 
 const RoomPage: React.FC<Props> = ({ page }) => {
+  if (!page || !page.data) return null;
   return (
     <div className={styles.Holder}>
       <div className={styles.Inner}>
