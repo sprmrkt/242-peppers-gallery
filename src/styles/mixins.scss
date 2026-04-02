@@ -55,6 +55,7 @@
   @include type-xl;
   @include font-heading;
   font-weight: 700;
+  text-transform: uppercase;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -63,6 +64,7 @@
   @include type-lg;
   @include font-heading;
   font-weight: 700;
+  text-transform: uppercase;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -71,6 +73,7 @@
   @include type-md;
   @include font-heading;
   font-weight: 500;
+  text-transform: uppercase;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -79,6 +82,7 @@
   @include type-base;
   @include font-highlight;
   font-weight: 500;
+  text-transform: uppercase;
   margin-top: 0.8rem;
   margin-bottom: 0.8rem;
 }
@@ -87,6 +91,7 @@
   @include type-sm;
   @include font-highlight;
   font-weight: 500;
+  text-transform: uppercase;
   margin-top: 0.8rem;
   margin-bottom: 0.8rem;
 }
