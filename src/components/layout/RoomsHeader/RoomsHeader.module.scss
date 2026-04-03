@@ -1,11 +1,21 @@
 .Holder {
-  padding: calc(var(--header-height) + var(--slice-vertical-padding)) var(--site-margin) var(--slice-vertical-padding);
+  padding: calc(var(--header-height) + var(--slice-vertical-padding)) var(--site-margin) 0;
   background-color: transparent;
   min-height: auto;
+  @include media(md) {
+    padding: calc(var(--header-height) + var(--slice-vertical-padding-md)) var(--site-margin-md) 0;
+  }
+}
+
+.Inner {
+  max-width: var(--site-max-width);
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
+  gap: var(--slice-vertical-padding);
+
   @include media(md) {
-    padding: calc(var(--header-height) + var(--slice-vertical-padding-md)) var(--site-margin-md) var(--slice-vertical-padding-md);
+    gap: var(--slice-vertical-padding-md);
   }
 }
 
@@ -13,7 +23,43 @@
   @include h1;
 }
 
+.TextHolder {
+  text-align: left;
+  max-width: 75rem;
+
+  p {
+    @include type-base;
+  }
+  li,
+  ol {
+    @include type-base;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    max-width: 75rem;
+  }
+  > :first-child {
+    margin-top: 0;
+  }
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
 .Filters {
+  @include type-sm;
+  @include font-highlight;
   display: flex;
-  gap: 1rem;
+  padding: 1rem 0;
+  gap: 4rem;
+  border-bottom: 1px solid var(--text-color);
+
+  a {
+    text-transform: uppercase;
+    text-decoration: none;
+  }
 }

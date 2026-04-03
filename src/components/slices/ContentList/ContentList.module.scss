@@ -33,7 +33,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--grid-gap);
+  gap: var(--site-content-gap);
   > :first-child {
     margin-top: 0;
   }
@@ -45,22 +45,36 @@
 .Headings {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  p {
+  gap: var(--site-content-gap);
+  h2 {
     @include h2;
   }
 }
 
 .Filters {
   display: flex;
-  gap: 1rem;
+  padding: 1rem 0;
+  gap: 4rem;
+  border-bottom: 1px solid var(--text-color);
+
+  button {
+    @include font-highlight;
+    @include type-sm;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
 }
 
 .Heading {
   h2 {
-    @include subheadings;
+    @include h2;
     margin: 0;
   }
+}
+
+.Title {
+  text-align: left;
+  max-width: 75rem;
 }
 
 .CTA {
@@ -74,16 +88,16 @@
   gap: calc(var(--grid-gap) * 2);
   @include media(sm) {
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--grid-gap) calc(var(--grid-gap) * 2);
+    gap: calc(var(--grid-gap) * 2) var(--grid-gap);
   }
   @include media(md) {
     grid-template-columns: repeat(3, 1fr);
   }
   @include media(lg) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   @include media(xl) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 

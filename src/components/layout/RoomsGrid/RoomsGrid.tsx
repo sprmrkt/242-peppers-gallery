@@ -18,12 +18,14 @@ const RoomsGrid: React.FC<Props> = ({ rooms }) => {
   const HolderClasses = classNames(styles.Holder, `show-${globalCurrentFilterType.toLowerCase()}`);
   return (
     <div className={HolderClasses}>
-      <div className={styles.Grid}>
-        {rooms.map((page, index) => {
-          return (
-            <PrismicCardForDocs key={index} item={page} />
-          );
-        })}
+      <div className={styles.Inner}>
+        <div className={styles.Grid}>
+          {rooms.map((page, index) => {
+            return (
+              <PrismicCardForDocs key={index} item={page} />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
