@@ -10,7 +10,6 @@ import classNames from "classnames";
 import { bgNameToClass } from "@/utils/helpers";
 
 const Feature = ({
-                   title,
                    text,
                    image,
                    video,
@@ -19,34 +18,24 @@ const Feature = ({
                    heading_2,
                    background_colour,
                    no_padding,
-                   is_hero,
                    image_position,
+                   list,
+                   list_title,
                  }: FeatureProps["slice"]["primary"]) => {
   const HolderClasses = classNames(styles.Holder, bgNameToClass(background_colour), {
     [styles.NoPadding]: no_padding,
-    [styles.IsHero]: is_hero,
     [styles.ImageRight]: image_position === "Right",
     [styles.ImageLeft]: image_position === "Left",
   });
   return (
     <div className={HolderClasses}>
       <div className={styles.Inner}>
+
+        {isFilled.richText(heading_2) && <div className={styles.Heading}>
+          <div className={styles.Subheading}><PrismicRichText field={heading_2} /></div>
+        </div>}
+
         <div className={styles.Content}>
-
-          {!is_hero && <>
-            {isFilled.richText(heading_2) &&
-              <div className={styles.Subheading}><PrismicRichText field={heading_2} /></div>}
-            {!isFilled.richText(heading_2) && isFilled.keyText(title) && <h2 className={styles.Title}>{title}</h2>}
-          </>}
-
-          {is_hero && <>
-            {isFilled.richText(heading_2) &&
-              <div className={styles.Subheading}><h1><PrismicText field={heading_2} /></h1></div>}
-            {!isFilled.richText(heading_2) && isFilled.keyText(title) && <h1 className={styles.Title}>{title}</h1>}
-          </>}
-
-          {isFilled.richText(heading_2) && isFilled.keyText(title) && <p className={styles.Title}>{title}</p>}
-
           {isFilled.richText(text) && (
             <div className={styles.Text}>
               <PrismicRichText field={text} />
@@ -54,6 +43,19 @@ const Feature = ({
           )}
           {isFilled.link(link) && (
             <PrismicNextLink field={link} className="button" />
+          )}
+          {list.length > 0 && (
+            <div className={styles.List}>
+              {isFilled.keyText(list_title) && <h3>{list_title}</h3>}
+              <ul>
+                {list.map((item, index) => {
+                  if (!isFilled.richText(item.list_item)) return null;
+                  return (
+                    <li key={index}><PrismicRichText field={item.list_item} /></li>
+                  );
+                })}
+              </ul>
+            </div>
           )}
         </div>
         <div className={styles.Image}>

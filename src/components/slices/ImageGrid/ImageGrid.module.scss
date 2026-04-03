@@ -14,6 +14,24 @@
   @include media(md) {
     padding: var(--slice-vertical-padding-md) var(--site-margin-md);
   }
+
+  &.HasBg {
+    padding: 0 var(--site-margin);
+    @include media(md) {
+      padding: 0 var(--site-margin-md);
+    }
+  }
+}
+
+.Inner {
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  &.InnerBg {
+    padding: var(--slice-vertical-padding) var(--site-margin);
+    @include media(md) {
+      padding: var(--slice-vertical-padding-md) var(--site-margin-md);
+    }
+  }
 }
 
 .TitlesHolder {
@@ -39,8 +57,6 @@
   grid-auto-flow: dense;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--grid-gap);
-  max-width: var(--site-max-width);
-  margin: 0 auto;
 
   @include media(md) {
     grid-template-columns: repeat(12, 1fr);
@@ -48,6 +64,12 @@
 }
 
 .Item {
+  &.MarginLeft {
+    padding-left: 20%;
+  }
+  &.MarginRight {
+    padding-right: 20%;
+  }
   @include media(md) {
     &.Full {
       grid-column: span 12;

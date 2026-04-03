@@ -3,13 +3,11 @@
 import dynamic from "next/dynamic";
 
 export const components = {
-  accordion_section: dynamic(() => import("./AccordionSection")),
-  cards: dynamic(() => import("./Cards")),
   content_list: dynamic(() => import("./ContentList")),
   feature: dynamic(() => import("./Feature")),
   hero: dynamic(() => import("./Hero")),
   image_grid: dynamic(() => import("./ImageGrid")),
   large_media: dynamic(() => import("./LargeMedia")),
-  simple_hero: dynamic(() => import("./SimpleHero")),
+  list: dynamic(() => import("./List")),
   text: dynamic(() => import("./Text")),
 };

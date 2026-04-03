@@ -6,67 +6,46 @@
 
   // -------------------------------------------------------------
 
-  position: relative;
-  min-height: 100lvh;
+  margin: 0;
+  padding-top: calc(var(--header-height) + var(--slice-vertical-padding));
+  padding-left: var(--site-margin);
+  padding-bottom: var(--slice-vertical-padding);
+  padding-right: var(--site-margin);
+  color: var(--text-color);
+  @include media(md) {
+    padding-top: calc(var(--header-height) + var(--slice-vertical-padding-md));
+    padding-left: var(--site-margin-md);
+    padding-bottom: var(--slice-vertical-padding-md);
+    padding-right: var(--site-margin-md);
+  }
 }
 
 .Inner {
-  position: absolute;
-  inset: 0;
+  max-width: var(--site-max-width);
+  margin: 0 auto;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  overflow: hidden;
+  flex-direction: column;
+  gap: var(--grid-gap);
 }
 
-.ContentHolder {
+.Media {
+  &.IsInset {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    // OR you could set margins left and right and remove max-width instead
+  }
+}
+
+.Title {
+}
+
+.Image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: hidden;
   position: relative;
   z-index: 1;
-  width: 100%;
-  max-width: calc(var(--site-max-width) + 2 * var(--site-margin));
-  margin: 0 auto;
-  @include media(md) {
-    max-width: calc(var(--site-max-width) + 2 * var(--site-margin-md));
-  }
-}
-
-.Content {
-  text-align: left;
-  width: 100%;
-  max-width: 80rem;
-  color: var(--light-color);
-  padding: var(--site-margin);
-
-  @include media(md) {
-    padding: var(--site-margin-md);
-  }
-}
-
-.Subheading {
-  h1 {
-    @include subheadings;
-    margin: 0;
-  }
-}
-.Title {
-  @include font-heading;
-  @include h1;
-  margin: 0;
-}
-.Text {
-  > :first-child {
-    margin-top: 0;
-  }
-  > :last-child {
-    margin-bottom: 0;
-  }
-}
-
-.Background {
-  position: absolute;
-  z-index: 0;
-  inset: 0;
-  overflow: hidden;
   img {
     position: absolute;
     inset: 0;
@@ -85,13 +64,23 @@
   object-fit: cover;
 }
 
-.LinkListHolder {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+.Details {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--grid-gap);
   align-items: center;
-  gap: 1rem;
-  margin-top: var(--spacing-unit);
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+
+  p {
+  @include font-highlight;
+  @include type-sm;
+  }
+
+  @include media(md) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 

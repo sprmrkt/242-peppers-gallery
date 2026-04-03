@@ -20,7 +20,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "cards": {
+            "list": {
               "type": "SharedSlice"
             },
             "feature": {
@@ -33,12 +33,6 @@
               "type": "SharedSlice"
             },
             "image_grid": {
-              "type": "SharedSlice"
-            },
-            "simple_hero": {
-              "type": "SharedSlice"
-            },
-            "accordion_section": {
               "type": "SharedSlice"
             },
             "hero": {

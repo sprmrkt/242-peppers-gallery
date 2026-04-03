@@ -139,6 +139,20 @@
 									"value": "Natural",
 									"type": "Select"
 								}
+							],
+							[
+								"margin_left",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
+							],
+							[
+								"margin_right",
+								{
+									"__TYPE__": "BooleanContent",
+									"value": false
+								}
 							]
 						]
 					}

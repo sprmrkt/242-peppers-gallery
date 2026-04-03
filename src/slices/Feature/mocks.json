@@ -26,11 +26,6 @@
 				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			},
-			"title": {
-				"__TYPE__": "FieldContent",
-				"value": "fast",
-				"type": "Text"
-			},
 			"text": {
 				"__TYPE__": "StructuredTextContent",
 				"value": [
@@ -97,10 +92,6 @@
 					}
 				]
 			},
-			"is_hero": {
-				"__TYPE__": "BooleanContent",
-				"value": true
-			},
 			"no_padding": {
 				"__TYPE__": "BooleanContent",
 				"value": false
@@ -109,6 +100,35 @@
 				"__TYPE__": "FieldContent",
 				"value": "Default",
 				"type": "Select"
+			},
+			"list": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"list_item",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Ipsum nulla ut esse aute qui pariatur elit do. Duis proident ut deserunt nisi laborum occaecat laboris ullamco. Voluptate aliquip aliqua proident adipisicing aliquip ad do cupidatat duis ullamco labore."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"list_title": {
+				"__TYPE__": "FieldContent",
+				"value": "dinner",
+				"type": "Text"
 			}
 		},
 		"items": []

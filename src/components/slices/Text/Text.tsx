@@ -15,21 +15,19 @@ const Text = ({
   text,
   anchor_link_id,
   cta,
-  text_size,
   heading_2,
-  background_color,
-  inner_background_colour
+  background_color
 }: TextProps["slice"]["primary"]) => {
-  const InnerClasses = classNames(styles.Inner, bgNameToClass(inner_background_colour), {
-    [styles.InnerBg]: background_color !== inner_background_colour,
+  const InnerClasses = classNames(styles.Inner, bgNameToClass(background_color), {
+    [styles.InnerBg]: background_color !== "Default",
   });
   const TextHolderClasses = classNames(
     styles.TextHolder,
-    styles[text_size],
     "rich-text"
   );
-  const HolderClasses = classNames(styles.Holder, bgNameToClass(background_color));
-
+  const HolderClasses = classNames(styles.Holder,  {
+    [styles.HasBg]: background_color !== "Default",
+  });
   return (
     <>
       {isFilled.richText(text) && (
@@ -40,7 +38,7 @@ const Text = ({
           <div className={InnerClasses}>
             <div className={TextHolderClasses}>
               {isFilled.richText(heading_2) && (
-                <div className={styles.Subheading}>
+                <div className={styles.Heading}>
                   <PrismicRichText field={heading_2} />
                 </div>
               )}

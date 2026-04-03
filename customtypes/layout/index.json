@@ -103,6 +103,35 @@
           }
         }
       }
+    },
+    "CTA": {
+      "cta_title": {
+        "type": "Text",
+        "config": {
+          "label": "CTA title",
+          "placeholder": ""
+        }
+      },
+      "cta_text": {
+        "type": "StructuredText",
+        "config": {
+          "label": "CTA text",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "multi": "paragraph,strong,em"
+        }
+      },
+      "cta_link": {
+        "type": "Link",
+        "config": {
+          "label": "CTA link",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
+      }
     }
   }
 }

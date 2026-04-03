@@ -1,11 +1,9 @@
 import { notFound } from "next/navigation";
 
 import { SliceZone } from "@prismicio/react";
-import * as prismic from "@prismicio/client";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
-import SearchExample from "@/components/general/SearchExample/SearchExample";
 import { defaultSharingImage } from "@/data/sharing";
 import { metadata } from "@/app/layout";
 
@@ -49,7 +47,6 @@ export default async function Page(props: { params: Params }) {
   return (
     <div>
       <SliceZone slices={page.data.slices} components={components} />
-      {/*{uid === "search" && <SearchExample />}*/}
     </div>
   );
 }

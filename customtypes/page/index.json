@@ -24,7 +24,7 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "cards": {
+            "list": {
               "type": "SharedSlice"
             },
             "feature": {
@@ -33,16 +33,10 @@
             "content_list": {
               "type": "SharedSlice"
             },
-            "accordion_section": {
-              "type": "SharedSlice"
-            },
             "large_media": {
               "type": "SharedSlice"
             },
             "image_grid": {
-              "type": "SharedSlice"
-            },
-            "simple_hero": {
               "type": "SharedSlice"
             },
             "hero": {

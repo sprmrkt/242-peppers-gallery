@@ -91,6 +91,15 @@
 				"__TYPE__": "FieldContent",
 				"value": "Default",
 				"type": "Select"
+			},
+			"inset_image": {
+				"__TYPE__": "BooleanContent",
+				"value": true
+			},
+			"heading_2": {
+				"__TYPE__": "FieldContent",
+				"value": "applied",
+				"type": "Text"
 			}
 		},
 		"items": []

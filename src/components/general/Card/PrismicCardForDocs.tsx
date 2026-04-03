@@ -8,18 +8,18 @@ import { isFilled } from "@prismicio/client";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
 import styles from "./Card.module.scss";
 import {
-  ContentListSliceDefaultPrimaryContentItem,
+  RoomDocument,
 } from "../../../../prismicio-types";
 import { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 
-interface PrismicCardProps {
-  item: ContentListSliceDefaultPrimaryContentItem;
+interface PrismicCardForDocsProps {
+  item: RoomDocument;
 }
 
 const hasBg = false;
 
-const PrismicCard: React.FC<PrismicCardProps> = ({ item }) => {
+const PrismicCardForDocs: React.FC<PrismicCardForDocsProps> = ({ item }) => {
   const [showFallback, setShowFallback] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -41,22 +41,14 @@ const PrismicCard: React.FC<PrismicCardProps> = ({ item }) => {
     }
   }, []);
 
-  const contentField = item.room;
-  // --------------
-  // Below is an example of how to handle when the content list has more than one page type available (ie. you add POST to it)
-  // const contentField = isFilled.contentRelationship(item.post) ? item.post : item.room;
-  // --------------
-  if (!isFilled.contentRelationship(contentField)) {
-    return null;
-  }
-  const { title, preview_image, preview_video, video_poster_image, beds, guests, bath, type } = contentField.data as any;
+  const { title, preview_image, preview_video, video_poster_image, beds, guests, bath, type } = item.data as any;
 
   const HolderClasses = classNames(styles.Holder, `is-${type.toLowerCase()}`, {
     [styles.HasBg]: hasBg,
   });
 
   return (
-    <PrismicNextLink field={contentField} className={HolderClasses}>
+    <PrismicNextLink document={item} className={HolderClasses}>
       <div className={styles.Inner}>
         <div className={styles.Image}>
           {isFilled.linkToMedia(preview_video) && !showFallback && (
@@ -99,26 +91,14 @@ const PrismicCard: React.FC<PrismicCardProps> = ({ item }) => {
             {isFilled.keyText(title) && (
               <h3 className={styles.Title}>{title}</h3>
             )}
-            <div className={styles.Details}>
-              <div className={styles.Detail}>
-                <p>Bed</p>
-                {isFilled.keyText(beds) && <p>{beds}</p>}
-              </div>
-              <div className={styles.Detail}>
-                <p>Guests</p>
-                {isFilled.keyText(guests) && <p>{guests}</p>}
-              </div>
-              <div className={styles.Detail}>
-                <p>Bathroom</p>
-                {isFilled.keyText(bath) && <p>{bath}</p>}
-              </div>
-            </div>
+            {isFilled.keyText(beds) && <p>{beds}</p>}
+            {isFilled.keyText(guests) && <p>{guests}</p>}
+            {isFilled.keyText(bath) && <p>{bath}</p>}
           </div>
         ))}
-        <PrismicNextLink field={contentField} className="button">More Info</PrismicNextLink>
       </div>
     </PrismicNextLink>
   );
 };
 
-export default PrismicCard;
+export default PrismicCardForDocs;

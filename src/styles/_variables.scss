@@ -41,6 +41,7 @@
   --site-margin-md: calc(var(--spacing-unit) * 2);
   --slice-vertical-padding: calc(var(--spacing-unit) * 2);
   --slice-vertical-padding-md: calc(var(--spacing-unit) * 3);
+  --site-content-gap: calc(var(--spacing-unit) * 4.5);
   --site-max-width: 1440px;
 
   // Once you have styled your header this is your variable to change.
@@ -106,7 +107,7 @@
   --var-1-input-text-color: var(--var-1-text);
   --var-1-error-color: var(--var-1-text);
 
-  --var-2-text: var(--white);
+  --var-2-text: var(--eucalyptus);
   --var-2-bg: #C6E2E7;
   --var-2-bg-tint: #{color.scale(#C6E2E7, $lightness: 10%)};
   --var-2-text-tint: #{color.scale(#FDF5E6, $lightness: -10%)};
@@ -141,10 +142,11 @@
   // ------------------------------
 
   //  Border radius
+  --border-radius-none: 0;
   --border-radius-sm: 0.25rem;
   --border-radius-md: 0.5rem;
 
-  --general-border-radius: var(--border-radius-md);
+  --general-border-radius: var(--border-radius-none);
 
   //  Transition easings
   --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);

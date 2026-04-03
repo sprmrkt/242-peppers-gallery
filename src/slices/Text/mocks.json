@@ -35,11 +35,6 @@
 					}
 				]
 			},
-			"text_size": {
-				"__TYPE__": "FieldContent",
-				"value": "XL",
-				"type": "Select"
-			},
 			"background_color": {
 				"__TYPE__": "FieldContent",
 				"value": "Default",
@@ -55,11 +50,6 @@
 						}
 					}
 				]
-			},
-			"inner_background_colour": {
-				"__TYPE__": "FieldContent",
-				"value": "Default",
-				"type": "Select"
 			}
 		},
 		"items": []

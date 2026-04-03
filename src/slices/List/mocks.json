@@ -1,0 +1,69 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading_2": {
+				"__TYPE__": "FieldContent",
+				"value": "horse",
+				"type": "Text"
+			},
+			"cta": {
+				"key": "792a91f0-b1cf-4056-876f-6e84a2cdb6ab",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://google.com",
+					"text": "zero"
+				}
+			},
+			"list_item": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"heading_3",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "were",
+									"type": "Text"
+								}
+							],
+							[
+								"text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Cillum adipisicing labore adipisicing non fugiat officia mollit veniam. Qui nisi qui officia ullamco ullamco adipisicing ea ipsum voluptate deserunt. Lorem exercitation velit non id exercitation cupidatat excepteur aute ut qui sit incididunt."
+											}
+										}
+									]
+								}
+							],
+							[
+								"extra_text",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Reprehenderit ipsum amet consectetur consectetur id anim duis. Commodo exercitation est sint cillum Lorem minim. Ea magna duis ullamco anim voluptate non eiusmod."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

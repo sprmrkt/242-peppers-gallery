@@ -44,6 +44,7 @@
   inset: 0;
   z-index: -1;
   background-color: var(--bg-color);
+  border-radius: var(--border-radius-sm);
   // backdrop-filter: blur(10px); Nice effect on transparent BG colours
 
   // Some MAD people like to animate in a BG as you leave the top of the page.

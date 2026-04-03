@@ -13,61 +13,70 @@ interface FooterProps {
 }
 
 export default async function Footer({ layoutData }: FooterProps) {
-  const { text, social_links, links_1, links_title_1 } = layoutData;
+  const { text, social_links, links_1, links_title_1, cta_text, cta_title, cta_link } = layoutData;
 
   return (
-    <footer className={styles.Holder}>
-      <div className={styles.Inner}>
-        <div className={styles.Branding}>
-          <Link href="/" className={styles.Logo}>
-            <Logo />
-          </Link>
-          {isFilled.richText(text) && (
-            <div className={styles.Copy}>
-              <PrismicRichText field={text} />
-            </div>
-          )}
+    <>
+      <div className={styles.PreFooter}>
+        <div className={styles.PreFooterInner}>
+          <h2>{isFilled.keyText(cta_title) && cta_title}</h2>
+          {isFilled.richText(cta_text) && <PrismicRichText field={cta_text} />}
+          {isFilled.link(cta_link) && <PrismicNextLink field={cta_link} className="button" />}
         </div>
-        {links_1.length > 0 && (
+      </div>
+      <footer className={styles.Holder}>
+        <div className={styles.Inner}>
+          <div className={styles.Branding}>
+            <Link href="/" className={styles.Logo}>
+              <Logo />
+            </Link>
+            {isFilled.richText(text) && (
+              <div className={styles.Copy}>
+                <PrismicRichText field={text} />
+              </div>
+            )}
+          </div>
+          {links_1.length > 0 && (
+            <nav className={styles.Nav}>
+              {isFilled.keyText(links_title_1) && <p>{links_title_1}</p>}
+              <ul>
+                {links_1.map(({ link }, index) => (
+                  <li key={index}>
+                    <PrismicNextLink field={link}>{link.text}</PrismicNextLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
           <nav className={styles.Nav}>
-            {isFilled.keyText(links_title_1) && <p>{links_title_1}</p>}
             <ul>
-              {links_1.map(({ link }, index) => (
+              {social_links.map((link, index) => (
                 <li key={index}>
-                  <PrismicNextLink field={link}>{link.text}</PrismicNextLink>
+                  <PrismicNextLink field={link.link}>
+                    {isFilled.image(link.icon) ? (
+                      <PrismicNextImage field={link.icon} fallbackAlt="" />
+                    ) : link.link.text ? (
+                      link.link.text
+                    ) : (
+                      "Link"
+                    )}
+                  </PrismicNextLink>
                 </li>
               ))}
             </ul>
           </nav>
-        )}
-        <nav className={styles.Nav}>
-          <ul>
-            {social_links.map((link, index) => (
-              <li key={index}>
-                <PrismicNextLink field={link.link}>
-                  {isFilled.image(link.icon) ? (
-                    <PrismicNextImage field={link.icon} fallbackAlt="" />
-                  ) : link.link.text ? (
-                    link.link.text
-                  ) : (
-                    "Link"
-                  )}
-                </PrismicNextLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
-      <p className={styles.Attribution}>
-        Designed by{" "}
-        <a href="https://publicwebsites.com/" target="_blank">
-          Public
-        </a>
-        , built by{" "}
-        <a href="https://supermarket.london/" target="_blank">
-          Supermarket
-        </a>
-      </p>
-    </footer>
+        </div>
+        <p className={styles.Attribution}>
+          Designed by{" "}
+          <a href="https://publicwebsites.com/" target="_blank">
+            Public
+          </a>
+          , built by{" "}
+          <a href="https://supermarket.london/" target="_blank">
+            Supermarket
+          </a>
+        </p>
+      </footer>
+    </>
   );
 }
