@@ -73,8 +73,8 @@
   --text-tint-color: #{color.scale(#64624C, $lightness: 5%)};
 
   // Buttons
-  --button-color: var(--bg-color);
-  --button-bg-color: var(--text-color);
+  --button-color: var(--text-color);
+  --button-bg-color: var(--bg-color);
   --button-border-color: var(--text-color);
 
   --button-hover-color: var(--bg-tint-color);

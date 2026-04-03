@@ -9,13 +9,15 @@
   --my-margin: 2rem;
 
   padding: 2rem;
-  margin: 2rem;
+  margin: 0;
   position: fixed; // fixed, relative, sticky
-  border-radius: var(--border-radius-sm);
+  border-radius: 0;
+  border-bottom: 1px solid var(--text-color);
+  overflow: visible;
   top: 0;
   left: 50%;
-  transform: translateX(calc(-50% - 2rem));
-  width: calc(100% - 2 * var(--my-margin));
+  transform: translateX(-50%);
+  width: 100%;
   max-width: calc(var(--site-max-width) + 2 * var(--my-margin));
 
   z-index: 100;
@@ -23,7 +25,6 @@
   display: none;
   mix-blend-mode: normal; // difference is good if you want to remove the BG colour but still show text over various colors
   opacity: 1; // Important to keep for header transitions if you need them
-
   @include media(lg) {
     display: block;
 
@@ -64,6 +65,13 @@
 }
 
 .Logo {
+
+  img {
+    height: 4rem;
+    width: auto;
+    display: block;
+  }
+
   svg {
     height: 2rem;
     width: auto;
@@ -85,7 +93,7 @@
       list-style: none;
       padding: 0;
       @include type-sm;
-      @include font-heading;
+      @include font-highlight;
       font-weight: normal;
       a {
         text-decoration: none;
