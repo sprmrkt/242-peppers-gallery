@@ -99,11 +99,23 @@ const PrismicCard: React.FC<PrismicCardProps> = ({ item }) => {
             {isFilled.keyText(title) && (
               <h3 className={styles.Title}>{title}</h3>
             )}
-            {isFilled.keyText(beds) && <p>{beds}</p>}
-            {isFilled.keyText(guests) && <p>{guests}</p>}
-            {isFilled.keyText(bath) && <p>{bath}</p>}
+            <div className={styles.Details}>
+              <div className={styles.Detail}>
+                <p>Bed</p>
+                {isFilled.keyText(beds) && <p>{beds}</p>}
+              </div>
+              <div className={styles.Detail}>
+                <p>Guests</p>
+                {isFilled.keyText(guests) && <p>{guests}</p>}
+              </div>
+              <div className={styles.Detail}>
+                <p>Bathroom</p>
+                {isFilled.keyText(bath) && <p>{bath}</p>}
+              </div>
+            </div>
           </div>
         ))}
+        <PrismicNextLink field={contentField} className="button">More Info</PrismicNextLink>
       </div>
     </PrismicNextLink>
   );
