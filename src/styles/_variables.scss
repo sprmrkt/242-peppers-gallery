@@ -142,10 +142,11 @@
   // ------------------------------
 
   //  Border radius
+  --border-radius-none: 0;
   --border-radius-sm: 0.25rem;
   --border-radius-md: 0.5rem;
 
-  --general-border-radius: var(--border-radius-md);
+  --general-border-radius: var(--border-radius-none);
 
   //  Transition easings
   --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
