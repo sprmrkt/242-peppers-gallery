@@ -74,15 +74,6 @@
             "placeholder": "If the ratio of the video is not 16:9 then enter it here as a number"
           }
         },
-        "no_padding": {
-          "type": "Boolean",
-          "config": {
-            "label": "No Padding",
-            "placeholder_false": "false",
-            "placeholder_true": "true",
-            "default_value": false
-          }
-        },
         "background_colour": {
           "type": "Select",
           "config": {
@@ -119,6 +110,15 @@
                 }
               }
             }
+          }
+        },
+        "centered_text": {
+          "type": "Boolean",
+          "config": {
+            "label": "Centered text",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
           }
         }
       },

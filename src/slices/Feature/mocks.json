@@ -92,10 +92,6 @@
 					}
 				]
 			},
-			"no_padding": {
-				"__TYPE__": "BooleanContent",
-				"value": false
-			},
 			"background_colour": {
 				"__TYPE__": "FieldContent",
 				"value": "Default",
@@ -129,6 +125,10 @@
 				"__TYPE__": "FieldContent",
 				"value": "dinner",
 				"type": "Text"
+			},
+			"centered_text": {
+				"__TYPE__": "BooleanContent",
+				"value": true
 			}
 		},
 		"items": []

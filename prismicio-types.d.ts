@@ -1024,17 +1024,6 @@ export interface FeatureSliceDefaultPrimary {
   video_ratio: prismic.NumberField;
 
   /**
-   * No Padding field in *Feature → Default → Primary*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: feature.default.primary.no_padding
-   * - **Documentation**: https://prismic.io/docs/fields/boolean
-   */
-  no_padding: prismic.BooleanField;
-
-  /**
    * Background Colour field in *Feature → Default → Primary*
    *
    * - **Field Type**: Select
@@ -1067,6 +1056,17 @@ export interface FeatureSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   list: prismic.GroupField<Simplify<FeatureSliceDefaultPrimaryListItem>>;
+
+  /**
+   * Centered text field in *Feature → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: feature.default.primary.centered_text
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  centered_text: prismic.BooleanField;
 }
 
 /**

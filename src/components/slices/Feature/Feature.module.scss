@@ -16,19 +16,6 @@
     padding: var(--slice-vertical-padding-md) var(--site-margin-md);
   }
 
-  &.NoPadding {
-    padding: 0;
-    .Content {
-      padding: var(--site-margin);
-      @include media(md) {
-        padding: var(--site-margin-md);
-      }
-    }
-    .ImageInner {
-      border-radius: 0;
-    }
-  }
-
   &.IsHero {
     padding-top: calc(var(--header-height) + var(--slice-vertical-padding));
     @include media(md) {
@@ -48,6 +35,20 @@
       @include media(md) {
         order: 2;
       }
+    }
+  }
+  &.CenteredText {
+    .Content {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border: 1px solid;
+    }
+    .Image {
+      aspect-ratio: 3/2;
+    }
+    .List {
+      display: none;
     }
   }
 }

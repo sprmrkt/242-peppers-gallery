@@ -17,15 +17,15 @@ const Feature = ({
                    link,
                    heading_2,
                    background_colour,
-                   no_padding,
                    image_position,
                    list,
                    list_title,
+                   centered_text,
                  }: FeatureProps["slice"]["primary"]) => {
   const HolderClasses = classNames(styles.Holder, bgNameToClass(background_colour), {
-    [styles.NoPadding]: no_padding,
     [styles.ImageRight]: image_position === "Right",
     [styles.ImageLeft]: image_position === "Left",
+    [styles.CenteredText]: centered_text,
   });
   return (
     <div className={HolderClasses}>
@@ -42,7 +42,7 @@ const Feature = ({
             </div>
           )}
           {isFilled.link(link) && (
-            <PrismicNextLink field={link} className="button" />
+            <p><PrismicNextLink field={link} className="button" /></p>
           )}
           {list.length > 0 && (
             <div className={styles.List}>
