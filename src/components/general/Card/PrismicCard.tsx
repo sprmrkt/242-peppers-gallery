@@ -115,7 +115,7 @@ const PrismicCard: React.FC<PrismicCardProps> = ({ item }) => {
             </div>
           </div>
         ))}
-        <PrismicNextLink field={contentField} className="button">More Info</PrismicNextLink>
+        <p className="button">More Info</p>
       </div>
     </PrismicNextLink>
   );

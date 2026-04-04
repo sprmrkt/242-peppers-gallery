@@ -22,7 +22,7 @@ const SubMenu = ({ items }) => {
           <ul className={styles.DropdownList}>
             {items.map((item, index) => (
               <li key={index} className={styles.DropdownItem}>
-                <PrismicNextLink 
+                <PrismicNextLink
                   field={item.link}
                   className={styles.DropdownLink}
                   onClick={() => setDesktopMenuOpen(false)}
