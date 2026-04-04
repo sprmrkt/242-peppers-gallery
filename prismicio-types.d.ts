@@ -1559,35 +1559,35 @@ export type LargeMediaSlice = prismic.SharedSlice<
 >;
 
 /**
- * Item in *List → Default → Primary → List item*
+ * Item in *List → Default → Primary → List items*
  */
-export interface ListSliceDefaultPrimaryListItemItem {
+export interface ListSliceDefaultPrimaryListItemsItem {
   /**
-   * Heading 3 field in *List → Default → Primary → List item*
+   * Heading 3 field in *List → Default → Primary → List items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: list.default.primary.list_item[].heading_3
+   * - **API ID Path**: list.default.primary.list_items[].heading_3
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
   heading_3: prismic.KeyTextField;
 
   /**
-   * Text field in *List → Default → Primary → List item*
+   * Text field in *List → Default → Primary → List items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: list.default.primary.list_item[].text
+   * - **API ID Path**: list.default.primary.list_items[].text
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   text: prismic.RichTextField;
 
   /**
-   * Extra text field in *List → Default → Primary → List item*
+   * Extra text field in *List → Default → Primary → List items*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: list.default.primary.list_item[].extra_text
+   * - **API ID Path**: list.default.primary.list_items[].extra_text
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   extra_text: prismic.RichTextField;
@@ -1608,14 +1608,16 @@ export interface ListSliceDefaultPrimary {
   heading_2: prismic.KeyTextField;
 
   /**
-   * List item field in *List → Default → Primary*
+   * List items field in *List → Default → Primary*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
-   * - **API ID Path**: list.default.primary.list_item[]
+   * - **API ID Path**: list.default.primary.list_items[]
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
-  list_item: prismic.GroupField<Simplify<ListSliceDefaultPrimaryListItemItem>>;
+  list_items: prismic.GroupField<
+    Simplify<ListSliceDefaultPrimaryListItemsItem>
+  >;
 
   /**
    * Cta field in *List → Default → Primary*
@@ -1626,6 +1628,20 @@ export interface ListSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
   cta: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Background Colour field in *List → Default → Primary*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **Default Value**: Default
+   * - **API ID Path**: list.default.primary.background_colour
+   * - **Documentation**: https://prismic.io/docs/fields/select
+   */
+  background_colour: prismic.SelectField<
+    "Default" | "Variation 1" | "Variation 2",
+    "filled"
+  >;
 }
 
 /**
@@ -1815,7 +1831,7 @@ declare module "@prismicio/client" {
       LargeMediaSliceVariation,
       LargeMediaSliceDefault,
       ListSlice,
-      ListSliceDefaultPrimaryListItemItem,
+      ListSliceDefaultPrimaryListItemsItem,
       ListSliceDefaultPrimary,
       ListSliceVariation,
       ListSliceDefault,

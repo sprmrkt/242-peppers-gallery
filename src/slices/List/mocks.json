@@ -17,7 +17,7 @@
 					"text": "zero"
 				}
 			},
-			"list_item": {
+			"list_items": {
 				"__TYPE__": "GroupContentType",
 				"value": [
 					{
@@ -27,7 +27,7 @@
 								"heading_3",
 								{
 									"__TYPE__": "FieldContent",
-									"value": "were",
+									"value": "curious",
 									"type": "Text"
 								}
 							],
@@ -39,7 +39,7 @@
 										{
 											"type": "paragraph",
 											"content": {
-												"text": "Cillum adipisicing labore adipisicing non fugiat officia mollit veniam. Qui nisi qui officia ullamco ullamco adipisicing ea ipsum voluptate deserunt. Lorem exercitation velit non id exercitation cupidatat excepteur aute ut qui sit incididunt."
+												"text": "Elit laborum labore eiusmod tempor anim nostrud consequat id do laboris enim."
 											}
 										}
 									]
@@ -53,7 +53,7 @@
 										{
 											"type": "paragraph",
 											"content": {
-												"text": "Reprehenderit ipsum amet consectetur consectetur id anim duis. Commodo exercitation est sint cillum Lorem minim. Ea magna duis ullamco anim voluptate non eiusmod."
+												"text": "Occaecat exercitation nulla duis consectetur nulla ullamco."
 											}
 										}
 									]
@@ -62,6 +62,11 @@
 						]
 					}
 				]
+			},
+			"background_colour": {
+				"__TYPE__": "FieldContent",
+				"value": "Default",
+				"type": "Select"
 			}
 		},
 		"items": []

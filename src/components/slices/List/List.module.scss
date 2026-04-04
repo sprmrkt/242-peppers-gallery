@@ -1,0 +1,84 @@
+.Holder {
+  // --------------------------- RULES ---------------------------
+
+  // ANYONE can edit the VALUES of style declarations for colors, type sizes, margins, paddings, gaps, alignment or justification
+  // SENIORS ONLY can add or remove declarations and edit layout values like display or position.
+
+  // -------------------------------------------------------------
+
+  margin: 0;
+  min-height: auto;
+  padding: var(--slice-vertical-padding) var(--site-margin);
+  border-radius: 0;
+  background-color: transparent;
+  @include media(md) {
+    padding: var(--slice-vertical-padding-md) var(--site-margin-md);
+  }
+
+  &.HasBg {
+    padding: 0 var(--site-margin);
+    @include media(md) {
+      padding: 0 var(--site-margin-md);
+    }
+  }
+}
+
+.Inner {
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--grid-gap);
+  @include media(md) {
+    grid-template-columns: 1fr 1fr;
+  }
+  &.InnerBg {
+    padding: var(--slice-vertical-padding) var(--site-margin);
+    @include media(md) {
+      padding: var(--slice-vertical-padding-md) var(--site-margin-md);
+    }
+  }
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  a {
+    align-self: flex-start;
+    margin-top: 2rem;
+  }
+}
+
+.Heading {
+}
+
+.List {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.ListItem {
+  border-top: 1px solid;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: var(--grid-gap);
+}
+
+.MainListContent {
+  display: flex;
+  flex-direction: column;
+  h3, p {
+    margin: 0;
+  }
+}
+
+.ExtraListContent {
+  p {
+    margin: 0;
+  }
+}
+
