@@ -2,34 +2,32 @@
 import React, { useState } from "react";
 import { PrismicNextLink } from "@prismicio/next";
 import styles from "./SubMenu.module.scss";
+import { useFilterStore } from "@/stores/useStore";
 
 const SubMenu = ({ items }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const desktopMenuOpen = useFilterStore((state) => state.desktopMenuOpen);
+  const setDesktopMenuOpen = useFilterStore((state) => state.setDesktopMenuOpen);
 
   if (!items || items.length === 0) return null;
 
-  const firstItem = items[0];
-  const dropdownItems = items.slice(1); // All items except the first one
+  console.log(items);
 
   return (
     <div
       className={styles.SubMenuContainer}
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
+      onMouseLeave={() => setDesktopMenuOpen(false)}
     >
-      {/* Main menu item that triggers dropdown */}
-      <PrismicNextLink field={firstItem} className={styles.MainLink}>
-        {firstItem.text}
-      </PrismicNextLink>
-
-      {/* Dropdown menu */}
-      {isOpen && dropdownItems.length > 0 && (
+      {desktopMenuOpen && items.length > 0 && (
         <div className={styles.Dropdown}>
           <ul className={styles.DropdownList}>
-            {dropdownItems.map((item, index) => (
+            {items.map((item, index) => (
               <li key={index} className={styles.DropdownItem}>
-                <PrismicNextLink field={item} className={styles.DropdownLink}>
-                  {item.text}
+                <PrismicNextLink 
+                  field={item.link}
+                  className={styles.DropdownLink}
+                  onClick={() => setDesktopMenuOpen(false)}
+                >
+                  {item.link.text}
                 </PrismicNextLink>
               </li>
             ))}

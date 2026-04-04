@@ -160,9 +160,7 @@ export interface LayoutDocumentDataLinksItem {
    * - **API ID Path**: layout.links[].link
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
-  link: prismic.Repeatable<
-    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
-  >;
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
 }
 
 /**

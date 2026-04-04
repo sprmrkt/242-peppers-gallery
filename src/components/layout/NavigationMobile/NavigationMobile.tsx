@@ -18,12 +18,11 @@ const NavigationMobile = ({ data, isOpen, setIsOpen }) => {
     <div className={styles.Holder}>
       <div className={overlayClasses}>
         <ul className={styles.Links}>
-          {navItems?.map(({ link }, i) =>
-            link?.map((link, j) => (
-              <li key={`${i}-${j}`} onClick={() => setIsOpen(false)}>
+          {navItems?.map(({ link }, i) => (
+              <li key={i} onClick={() => setIsOpen(false)}>
                 <PrismicNextLink field={link}>{link.text}</PrismicNextLink>
               </li>
-            ))
+            )
           )}
           {isFilled.link(data.cta) && <li className={styles.Cta}>
             <PrismicNextLink field={data.cta} className="button"/>
