@@ -67,11 +67,18 @@
 .Details {
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: var(--grid-gap);
   align-items: center;
   justify-content: center;
   text-align: center;
+  text-transform: uppercase;
+
+  p {
+  @include font-highlight;
+  @include type-sm;
+  }
+
   @include media(md) {
     grid-template-columns: 1fr 1fr 1fr;
   }

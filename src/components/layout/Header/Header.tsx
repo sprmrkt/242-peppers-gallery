@@ -12,7 +12,7 @@ import { PrismicNextLink } from "@prismicio/next";
 import SubMenu from "./SubMenu/SubMenu";
 import classNames from "classnames";
 import { useEffect, useState } from "react";
-import Logo from "../../../assets/svg/logo.svg";
+import Logo from "../../../assets/logo/Logo_Eucalyptus.png";
 import { isFilled } from "@prismicio/client";
 
 const Header = ({ data }) => {
@@ -44,7 +44,7 @@ const Header = ({ data }) => {
       <div className={backgroundClasses} />
       <div className={styles.Inner}>
         <Link href="/" className={styles.Logo}>
-          <Logo />
+          <Image src={Logo} alt="Logo" />
         </Link>
         <nav className={styles.Nav}>
           <ul>
@@ -64,7 +64,7 @@ const Header = ({ data }) => {
               }
             })}
             {isFilled.link(data.cta) && <li>
-              <PrismicNextLink field={data.cta} className="button small"/>
+              <PrismicNextLink field={data.cta} className="button small" />
             </li>}
           </ul>
         </nav>

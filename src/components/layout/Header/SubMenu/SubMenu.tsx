@@ -20,9 +20,6 @@ const SubMenu = ({ items }) => {
       {/* Main menu item that triggers dropdown */}
       <PrismicNextLink field={firstItem} className={styles.MainLink}>
         {firstItem.text}
-        {dropdownItems.length > 0 && (
-          <span className={styles.Arrow}>&darr;</span>
-        )}
       </PrismicNextLink>
 
       {/* Dropdown menu */}

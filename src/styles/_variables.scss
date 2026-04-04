@@ -41,6 +41,7 @@
   --site-margin-md: calc(var(--spacing-unit) * 2);
   --slice-vertical-padding: calc(var(--spacing-unit) * 2);
   --slice-vertical-padding-md: calc(var(--spacing-unit) * 3);
+  --site-content-gap: calc(var(--spacing-unit) * 4.5);
   --site-max-width: 1440px;
 
   // Once you have styled your header this is your variable to change.
@@ -72,8 +73,8 @@
   --text-tint-color: #{color.scale(#64624C, $lightness: 5%)};
 
   // Buttons
-  --button-color: var(--bg-color);
-  --button-bg-color: var(--text-color);
+  --button-color: var(--text-color);
+  --button-bg-color: var(--bg-color);
   --button-border-color: var(--text-color);
 
   --button-hover-color: var(--bg-tint-color);
@@ -141,10 +142,11 @@
   // ------------------------------
 
   //  Border radius
+  --border-radius-none: 0;
   --border-radius-sm: 0.25rem;
   --border-radius-md: 0.5rem;
 
-  --general-border-radius: var(--border-radius-md);
+  --general-border-radius: var(--border-radius-none);
 
   //  Transition easings
   --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);

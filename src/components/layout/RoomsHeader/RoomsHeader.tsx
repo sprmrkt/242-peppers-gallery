@@ -18,13 +18,17 @@ const RoomsHeader: React.FC<Props> = ({ title, description, isPage }) => {
 
   return (
     <div className={styles.Holder}>
-      {!isPage && <h1 className={styles.Title}>{title}</h1>}
-      {isPage && <p>{title}</p>}
-      {isFilled.richText(description) && <PrismicRichText field={description} />}
-      <div className={styles.Filters}>
-        <Link href={"/rooms"} onClick={() => setGlobalCurrentFilterType("All")}>View All</Link>
-        <Link href={"/rooms"} onClick={() => setGlobalCurrentFilterType("Room")}>Rooms</Link>
-        <Link href={"/rooms"} onClick={() => setGlobalCurrentFilterType("Suite")}>Suites</Link>
+      <div className={styles.Inner}>
+        {!isPage && <h1 className={styles.Title}>{title}</h1>}
+        {isPage && <p>{title}</p>}
+        <div className={styles.TextHolder}>
+          {isFilled.richText(description) && <PrismicRichText field={description} />}
+        </div>
+        <div className={styles.Filters}>
+          <Link href={"/rooms"} onClick={() => setGlobalCurrentFilterType("All")}>View All</Link>
+          <Link href={"/rooms"} onClick={() => setGlobalCurrentFilterType("Room")}>Rooms</Link>
+          <Link href={"/rooms"} onClick={() => setGlobalCurrentFilterType("Suite")}>Suites</Link>
+        </div>
       </div>
     </div>
   );
