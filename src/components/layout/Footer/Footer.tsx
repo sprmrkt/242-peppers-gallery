@@ -3,10 +3,12 @@
 import { LayoutDocumentData } from "../../../../prismicio-types";
 import styles from "@/components/layout/Footer/Footer.module.scss";
 import Link from "next/link";
-import Logo from "@/assets/svg/logo.svg";
+import Logo from "@/assets/logo/Logo_Linen.png";
+import AllLogo from "@/assets/logo/All_Accor.png";
 import { isFilled } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
 import { PrismicNextImage, PrismicNextLink } from "@prismicio/next";
+import Image from "next/image";
 
 interface FooterProps {
   layoutData: LayoutDocumentData;
@@ -28,13 +30,16 @@ export default async function Footer({ layoutData }: FooterProps) {
         <div className={styles.Inner}>
           <div className={styles.Branding}>
             <Link href="/" className={styles.Logo}>
-              <Logo />
+              <Image src={Logo} alt="Logo" />
             </Link>
             {isFilled.richText(text) && (
               <div className={styles.Copy}>
                 <PrismicRichText field={text} />
               </div>
             )}
+            <div className={styles.Logo}>
+              <Image src={AllLogo} alt="All Logo" />
+            </div>
           </div>
           {links_1.length > 0 && (
             <nav className={styles.Nav}>
@@ -48,7 +53,7 @@ export default async function Footer({ layoutData }: FooterProps) {
               </ul>
             </nav>
           )}
-          <nav className={styles.Nav}>
+          {/* <nav className={styles.Nav}>
             <ul>
               {social_links.map((link, index) => (
                 <li key={index}>
@@ -64,12 +69,19 @@ export default async function Footer({ layoutData }: FooterProps) {
                 </li>
               ))}
             </ul>
-          </nav>
+          </nav> */}
+          <div className={styles.Copyright}>
+            <p>&copy; 2026 Peppers Gallery Hotel Canberra</p>
+            <div className={styles.CopyrightLinks}>
+              <a href="/privacy">Privacy Policy</a>
+              <a href="/terms">Terms and Conditions</a>
+            </div>
+          </div>
         </div>
         <p className={styles.Attribution}>
           Designed by{" "}
-          <a href="https://publicwebsites.com/" target="_blank">
-            Public
+          <a href="https://u-p.co/" target="_blank">
+            U-P
           </a>
           , built by{" "}
           <a href="https://supermarket.london/" target="_blank">
