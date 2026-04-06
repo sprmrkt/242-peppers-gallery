@@ -51,6 +51,10 @@
 }
 
 .Heading {
+  @include font-highlight;
+  @include type-sm;
+  padding: var(--grid-gap) 0;
+  text-transform: uppercase;
 }
 
 .List {
@@ -63,22 +67,31 @@
 
 .ListItem {
   border-top: 1px solid;
+  padding: var(--grid-gap) 0;
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 1fr auto;
   gap: var(--grid-gap);
 }
 
 .MainListContent {
   display: flex;
   flex-direction: column;
-  h3, p {
+  h3 {
+    text-transform: none;
+  }
+  p {
     margin: 0;
+    line-height: 1.15;
   }
 }
 
 .ExtraListContent {
-  p {
+  p, a {
+    @include font-highlight;
+    @include type-sm;
     margin: 0;
+    text-transform: uppercase;
+    text-align: right;
   }
 }
 
