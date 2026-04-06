@@ -19,14 +19,13 @@
   // Type scale
   // Please direct designers to this tool to generate these values: https://www.fluid-type-scale.com/
   // Below is the link for the default values we have set here
-  // https://www.fluid-type-scale.com/calculate?minFontSize=18&minWidth=430&minRatio=1.25&maxFontSize=20&maxWidth=1440&maxRatio=1.414&steps=xs%2Csm%2Cbase%2Cmd%2Clg%2Cxl&baseStep=base&prefix=type&useContainerWidth=false&includeFallbacks=false&useRems=true&remValue=10&decimals=2&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=1440
+  // https://www.fluid-type-scale.com/calculate?minFontSize=16&minWidth=400&minRatio=1.333&maxFontSize=20&maxWidth=1280&maxRatio=1.414&steps=sm%2Cbase%2Cmd%2Clg%2Cxl%2Cxxl%2Cxxxl&baseStep=base&prefix=type&useContainerWidth=false&includeFallbacks=false&useRems=true&remValue=10&decimals=2&previewFont=Inter&previewText=Almost+before+we+knew+it%2C+we+had+left+the+ground&previewWidth=1280
 
-  --type-xs: clamp(1.15rem, -0.15vi + 1.22rem, 1rem);
-  --type-sm: clamp(1.44rem, -0.03vi + 1.45rem, 1.41rem);
-  --type-base: clamp(1.8rem, 0.2vi + 1.71rem, 2rem);
-  --type-md: clamp(2.25rem, 0.57vi + 2rem, 2.83rem);
-  --type-lg: clamp(2.81rem, 1.17vi + 2.31rem, 4rem);
-  --type-xl: clamp(3.52rem, 2.12vi + 2.61rem, 5.65rem);
+--type-sm: clamp(1.2rem, 0.24vi + 1.1rem, 1.41rem);
+--type-base: clamp(1.6rem, 0.45vi + 1.42rem, 2rem);
+--type-md: clamp(2.13rem, 0.79vi + 1.82rem, 2.83rem);
+--type-lg: clamp(3.79rem, 2.12vi + 2.94rem, 5.65rem);
+--type-xl: clamp(6.73rem, 5.19vi + 4.66rem, 11.31rem);
 
   // ------------------------------
   // SPACING
