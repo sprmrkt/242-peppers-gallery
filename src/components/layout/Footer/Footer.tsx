@@ -75,8 +75,8 @@ export default async function Footer({ layoutData }: FooterProps) {
           <div className={styles.Copyright}>
             <p>&copy; 2026 Peppers Gallery Hotel Canberra</p>
             <div className={styles.CopyrightLinks}>
-              <a href="/privacy">Privacy Policy</a>
-              <a href="/terms">Terms and Conditions</a>
+              <Link href="/privacy">Privacy Policy</Link>
+              <Link href="/terms">Terms and Conditions</Link>
             </div>
           </div>
         </div>
