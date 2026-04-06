@@ -13,12 +13,12 @@ import VimeoBackground from "@/components/general/VimeoBackground/VimeoBackgroun
 
 
 const ImageGrid = ({
-                     images,
-                     title,
-                     heading_2,
-                     background_colour,
-                     description,
-                   }: ImageGridProps["slice"]["primary"]) => {
+  images,
+  title,
+  heading_2,
+  background_colour,
+  description,
+}: ImageGridProps["slice"]["primary"]) => {
   // If the link is filled, render the link wrapped image / video
   // If the video or embed is filled + no link, video will play on hover
   // If the link is not filled, wrap image or video in a lightbox container
@@ -105,20 +105,20 @@ const ImageGrid = ({
                 )}
                 {(isFilled.keyText(fields.caption) ||
                   isFilled.link(fields.link)) && (
-                  <div className={styles.Caption}>
-                    {isFilled.keyText(fields.caption) && <p>{fields.caption}</p>}
-                    {isFilled.link(fields.link) && (
-                      <p>
-                        <PrismicNextLink
-                          field={fields.link}
-                          className="button small"
-                        >
-                          {fields.link.text || "Read more"}
-                        </PrismicNextLink>
-                      </p>
-                    )}
-                  </div>
-                )}
+                    <div className={styles.Caption}>
+                      {isFilled.keyText(fields.caption) && <p>{fields.caption}</p>}
+                      {isFilled.link(fields.link) && (
+                        <p>
+                          <PrismicNextLink
+                            field={fields.link}
+                            className="button"
+                          >
+                            {fields.link.text || "Read more"}
+                          </PrismicNextLink>
+                        </p>
+                      )}
+                    </div>
+                  )}
               </div>
             );
           })}

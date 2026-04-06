@@ -7,15 +7,15 @@
   // -------------------------------------------------------------
 
   padding: 2rem;
-  margin: 1rem;
+  margin: 0;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
   color: var(--text-color);
   background-color: var(--bg-color);
-  width: calc(100% - 2 * 1rem);
-  border-radius: var(--border-radius-sm);
+  width: 100%;
+  border-radius: 0;
 
   @include media(lg) {
     display: none;
@@ -29,6 +29,12 @@
 }
 
 .Logo {
+  img {
+    height: 2rem;
+    width: auto;
+    display: block;
+  }
+
   svg {
     height: 2rem;
     width: auto;
@@ -43,6 +49,13 @@
   button {
     line-height: 0;
     color: var(--text-color);
+    text-transform: uppercase;
+
+    p {
+      @include type-sm;
+      @include font-highlight;
+    }
+
     svg {
       width: 2rem;
       height: auto;

@@ -59,7 +59,7 @@
 
 .Inner {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: auto 1fr;
   gap: 2rem;
   align-items: center;
 }
@@ -67,7 +67,7 @@
 .Logo {
 
   img {
-    height: 4rem;
+    height: 3rem;
     width: auto;
     display: block;
   }
@@ -83,18 +83,24 @@
 }
 
 .Nav {
+  width: 100%;
+  display: flex;
   ul {
+    width: 100%;
     display: flex;
     gap: 2rem;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     margin: 0;
     li {
       list-style: none;
       padding: 0;
-      @include type-sm;
       @include font-highlight;
       font-weight: normal;
+      button {
+        text-transform: uppercase;
+        @include type-sm;
+      }
       a {
         text-decoration: none;
         text-transform: uppercase;

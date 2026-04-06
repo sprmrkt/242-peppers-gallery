@@ -11,7 +11,7 @@ import Link from "next/link";
 import CloseIcon from "@/assets/icons/CloseIcon";
 import MenuIcon from "@/assets/icons/MenuIcon";
 import NavigationMobile from "../NavigationMobile/NavigationMobile";
-import Logo from "@/assets/svg/logo.svg";
+import Logo from "../../../assets/logo/Logo_Eucalyptus.png";
 
 const MobileHeader = ({ data }) => {
   const [showNav, setShowNav] = useState(false);
@@ -25,12 +25,12 @@ const MobileHeader = ({ data }) => {
         <div className={styles.Inner}>
           <div onClick={() => setShowNav(false)}>
             <Link href="/" className={styles.Logo}>
-              <Logo />
+              <Image src={Logo} alt="Logo" />
             </Link>
           </div>
           <button className="strip-styles" onClick={() => setShowNav(!showNav)}>
-            {showNav && <CloseIcon />}
-            {!showNav && <MenuIcon />}
+            {showNav && <p>Close</p>}
+            {!showNav && <p>Menu</p>}
           </button>
         </div>
       </header>
