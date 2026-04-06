@@ -91,8 +91,8 @@
 
   // There are two available variations in colour. These are styled using the classNames color-variation-1/2
   --var-1-text: var(--white);
-  --var-1-bg: var(--uluru);
-  --var-1-bg-tint: #{color.scale(#A75D40, $lightness: 10%)};
+  --var-1-bg: var(--eucalyptus);
+  --var-1-bg-tint: #{color.scale(#64624C, $lightness: 10%)};
   --var-1-text-tint: #{color.scale(#FDF5E6, $lightness: -10%)};
 
   --var-1-button-color: var(--var-1-bg);
@@ -130,7 +130,7 @@
 
   // Buttons
 
-  --button-border-radius: var(--border-radius-sm); // 1000px if you want them fully rounded
+  --button-border-radius: var(--border-radius-none); // 1000px if you want them fully rounded
   // SET BUTTON FONT AND SIZE IN styles/mixins.scss
 
   --input-height: 3rem;

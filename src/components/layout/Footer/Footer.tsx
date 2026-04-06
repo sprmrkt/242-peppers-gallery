@@ -21,9 +21,11 @@ export default async function Footer({ layoutData }: FooterProps) {
     <>
       <div className={styles.PreFooter}>
         <div className={styles.PreFooterInner}>
-          <h2>{isFilled.keyText(cta_title) && cta_title}</h2>
-          {isFilled.richText(cta_text) && <PrismicRichText field={cta_text} />}
-          {isFilled.link(cta_link) && <PrismicNextLink field={cta_link} className="button" />}
+          <div>
+            <h2>{isFilled.keyText(cta_title) && cta_title}</h2>
+            {isFilled.richText(cta_text) && <PrismicRichText field={cta_text} />}
+          </div>
+          {isFilled.link(cta_link) && <PrismicNextLink field={cta_link} className="button color-variation-1" />}
         </div>
       </div>
       <footer className={styles.Holder}>

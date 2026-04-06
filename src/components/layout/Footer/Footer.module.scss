@@ -154,16 +154,33 @@
 .PreFooter {
   margin: 0;
   min-height: auto;
-  padding: var(--slice-vertical-padding) var(--site-margin);
   border-radius: 0;
   background-color: transparent;
+  padding: var(--slice-vertical-padding) var(--site-margin);
   @include media(md) {
     padding: var(--slice-vertical-padding-md) var(--site-margin-md);
   }
 }
 
 .PreFooterInner {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  border-top: 1px solid var(--text-color);
   max-width: var(--site-max-width);
   margin: 0 auto;
+  padding: var(--slice-vertical-padding) 0 0;
+
+  @include media(md) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--slice-vertical-padding-md) 0 0;
+  }
+  p {
+    @include type-sm;
+    @include font-highlight;
+    text-transform: uppercase;
+  }
 }
 

@@ -35,7 +35,7 @@ const Header = ({ data }) => {
               onMouseEnter={() => setDesktopMenuOpen(true)}
             >Menu</button></li>
             {isFilled.link(data.cta) && <li>
-              <PrismicNextLink field={data.cta} className="button small" />
+              <PrismicNextLink field={data.cta} className="button" />
             </li>}
           </ul>
           <SubMenu items={navItems} />
