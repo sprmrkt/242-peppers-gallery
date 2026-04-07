@@ -34,14 +34,16 @@ const ImageGrid = ({
   return (
     <div className={HolderClasses}>
       <div className={InnerClasses}>
-        <div className={styles.TitlesHolder}>
-          {isFilled.richText(heading_2) &&
-            <div className={styles.Subheading}><PrismicRichText field={heading_2} /></div>}
-          {!isFilled.richText(heading_2) && isFilled.keyText(title) && <h2 className={styles.Title}>{title}</h2>}
-          {isFilled.richText(heading_2) && isFilled.keyText(title) && <p className={styles.Title}>{title}</p>}
-          {isFilled.richText(description) &&
-            <div className={styles.Subheading}><PrismicRichText field={description} /></div>}
-        </div>
+        {(isFilled.richText(heading_2) || isFilled.keyText(title) || isFilled.richText(description)) && (
+          <div className={styles.TitlesHolder}>
+            {isFilled.richText(heading_2) &&
+              <div className={styles.Subheading}><PrismicRichText field={heading_2} /></div>}
+            {!isFilled.richText(heading_2) && isFilled.keyText(title) && <h2 className={styles.Title}>{title}</h2>}
+            {isFilled.richText(heading_2) && isFilled.keyText(title) && <p className={styles.Title}>{title}</p>}
+            {isFilled.richText(description) &&
+              <div className={styles.Subheading}><PrismicRichText field={description} /></div>}
+          </div>
+        )}
 
         <div className={styles.Grid}>
           {images.map((fields, index) => {
@@ -103,28 +105,36 @@ const ImageGrid = ({
                     </div>
                   </>
                 )}
-                {(isFilled.keyText(fields.caption) ||
+                {(isFilled.keyText(fields.caption) &&
                   isFilled.link(fields.link)) && (
                     <div className={styles.Caption}>
-                      {isFilled.keyText(fields.caption) && <p>{fields.caption}</p>}
-                      {isFilled.link(fields.link) && (
-                        <p>
-                          <PrismicNextLink
-                            field={fields.link}
-                            className="button"
-                          >
-                            {fields.link.text || "Read more"}
-                          </PrismicNextLink>
-                        </p>
-                      )}
+                      <p>
+                        <PrismicNextLink
+                          field={fields.link}
+                        >
+                          {fields.caption || "Read more"}
+                        </PrismicNextLink>
+                      </p>
+                    </div>
+                  )}
+                {(!isFilled.keyText(fields.caption) &&
+                  isFilled.link(fields.link) && isFilled.keyText(fields.link.text)) && (
+                    <div className={styles.Caption}>
+                      <p>
+                        <PrismicNextLink
+                          field={fields.link}
+                        >
+                          {fields.caption || "Read more"}
+                        </PrismicNextLink>
+                      </p>
                     </div>
                   )}
               </div>
-            );
+            )
           })}
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
