@@ -16,7 +16,7 @@
   }
 
   &.HasBg {
-    padding: 0 var(--site-margin);
+    padding: 0 calc(var(--site-margin) * 0.5);
     @include media(md) {
       padding: 0 var(--site-margin-md);
     }
@@ -27,7 +27,7 @@
   max-width: var(--site-max-width);
   margin: 0 auto;
   &.InnerBg {
-    padding: var(--slice-vertical-padding) var(--site-margin);
+    padding: var(--slice-vertical-padding) calc(var(--site-margin) * 0.5);
     @include media(md) {
       padding: var(--slice-vertical-padding-md) var(--site-margin-md);
     }
@@ -67,20 +67,26 @@
     align-items: start;
     grid-auto-flow: dense;
     grid-template-columns: repeat(12, 1fr);
+    column-gap: var(--grid-gap);
+    row-gap: var(--site-content-gap-md);
 
     img {
-      height: auto;
       width: 100%;
+      height: auto;
     }
   }
 }
 
 .Item {
   &.MarginLeft {
-    padding-left: 20%;
+    @include media(md) {
+      padding-left: 20%;
+    }
   }
   &.MarginRight {
-    padding-right: 20%;
+    @include media(md) {
+      padding-right: 20%;
+    }
   }
   @include media(md) {
     &.Full {
@@ -155,4 +161,3 @@
   > :first-child { margin-top: 0; }
   > :last-child { margin-bottom: 0; }
 }
-

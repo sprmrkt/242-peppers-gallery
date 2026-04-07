@@ -16,7 +16,7 @@
   }
 
   &.HasBg {
-    padding: 0 var(--site-margin);
+    padding: 0 calc(var(--site-margin) * 0.5);
     @include media(md) {
       padding: 0 var(--site-margin-md);
     }
@@ -28,7 +28,7 @@
   max-width: var(--site-max-width);
   margin: 0 auto;
   &.InnerBg {
-    padding: var(--slice-vertical-padding) var(--site-margin);
+    padding: var(--slice-vertical-padding) calc(var(--site-margin) * 0.5);
     @include media(md) {
       padding: var(--slice-vertical-padding-md) var(--site-margin-md);
     }

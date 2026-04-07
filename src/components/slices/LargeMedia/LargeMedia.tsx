@@ -10,16 +10,16 @@ import { bgNameToClass } from "@/utils/helpers";
 import { PrismicRichText } from "@prismicio/react";
 
 const LargeMedia = ({
-                      image,
-                      video,
-                      caption,
-                      cropped,
-                      mobile_image,
-                      background_colour,
-                      no_padding,
-                      inset_image,
-                      heading_2,
-                    }: LargeMediaProps["slice"]["primary"]) => {
+  image,
+  video,
+  caption,
+  cropped,
+  mobile_image,
+  background_colour,
+  no_padding,
+  inset_image,
+  heading_2,
+}: LargeMediaProps["slice"]["primary"]) => {
   if (!isFilled.image(image) && !isFilled.embed(video)) return null;
 
   const imageHolderClasses = classNames(styles.ImageHolder, {
@@ -39,9 +39,11 @@ const LargeMedia = ({
   return (
     <div className={HolderClasses}>
       <div className={styles.Inner}>
-        <div className={styles.Title}>
-          {isFilled.keyText(heading_2) && <h2>{heading_2}</h2>}
-        </div>
+        {isFilled.keyText(heading_2) && (
+          <div className={styles.Title}>
+            <h2>{heading_2}</h2>
+          </div>
+        )}
         {!isFilled.embed(video) && (
           <div className={imageHolderClasses}>
             <PrismicNextImage field={image} fallbackAlt="" />
