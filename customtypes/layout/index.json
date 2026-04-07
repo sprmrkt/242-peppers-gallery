@@ -75,6 +75,26 @@
           }
         }
       },
+      "links_2": {
+        "type": "Group",
+        "config": {
+          "label": "Links 2",
+          "repeat": true,
+          "fields": {
+            "link": {
+              "type": "Link",
+              "config": {
+                "label": "Link",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": true,
+                "repeat": false
+              }
+            }
+          }
+        }
+      },
       "social_links": {
         "type": "Group",
         "config": {

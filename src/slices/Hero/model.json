@@ -12,6 +12,13 @@
       "description": "Default",
       "imageUrl": "",
       "primary": {
+        "subheading": {
+          "type": "Text",
+          "config": {
+            "label": "Subheading",
+            "placeholder": ""
+          }
+        },
         "heading_1": {
           "type": "StructuredText",
           "config": {
@@ -77,6 +84,30 @@
             "placeholder_false": "false",
             "placeholder_true": "true",
             "default_value": false
+          }
+        },
+        "mobile_image": {
+          "type": "Image",
+          "config": {
+            "label": "Mobile image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "mobile_video": {
+          "type": "Embed",
+          "config": {
+            "label": "Mobile video",
+            "placeholder": ""
+          }
+        },
+        "mobile_video_from_media_library": {
+          "type": "Link",
+          "config": {
+            "label": "Mobile video from media library",
+            "placeholder": "",
+            "select": "media",
+            "allowText": true
           }
         }
       },

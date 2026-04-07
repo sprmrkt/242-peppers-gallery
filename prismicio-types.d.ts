@@ -179,6 +179,21 @@ export interface LayoutDocumentDataLinks1Item {
 }
 
 /**
+ * Item in *Layout → Links 2*
+ */
+export interface LayoutDocumentDataLinks2Item {
+  /**
+   * Link field in *Layout → Links 2*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.links_2[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
  * Item in *Layout → Social Links*
  */
 export interface LayoutDocumentDataSocialLinksItem {
@@ -265,6 +280,17 @@ interface LayoutDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
    */
   links_1: prismic.GroupField<Simplify<LayoutDocumentDataLinks1Item>>;
+
+  /**
+   * Links 2 field in *Layout*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: layout.links_2[]
+   * - **Tab**: Footer
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  links_2: prismic.GroupField<Simplify<LayoutDocumentDataLinks2Item>>;
 
   /**
    * Social Links field in *Layout*
@@ -1119,6 +1145,16 @@ export interface HeroSliceDefaultPrimaryDetailsItem {
  */
 export interface HeroSliceDefaultPrimary {
   /**
+   * Subheading field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.subheading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  subheading: prismic.KeyTextField;
+
+  /**
    * H1 field in *Hero → Default → Primary*
    *
    * - **Field Type**: Rich Text
@@ -1191,6 +1227,39 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
   inset_image: prismic.BooleanField;
+
+  /**
+   * Mobile image field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.mobile_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  mobile_image: prismic.ImageField<never>;
+
+  /**
+   * Mobile video field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.mobile_video
+   * - **Documentation**: https://prismic.io/docs/fields/embed
+   */
+  mobile_video: prismic.EmbedField;
+
+  /**
+   * Mobile video from media library field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.mobile_video_from_media_library
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  mobile_video_from_media_library: prismic.LinkToMediaField<
+    prismic.FieldState,
+    never
+  >;
 }
 
 /**
@@ -1333,6 +1402,17 @@ export interface ImageGridSliceDefaultPrimaryImagesItem {
    * - **Documentation**: https://prismic.io/docs/fields/boolean
    */
   margin_right: prismic.BooleanField;
+
+  /**
+   * Stretch to row height field in *ImageGrid → Default → Primary → Images*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: image_grid.default.primary.images[].stretch_to_row_height
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  stretch_to_row_height: prismic.BooleanField;
 }
 
 /**
@@ -1791,6 +1871,7 @@ declare module "@prismicio/client" {
       LayoutDocumentData,
       LayoutDocumentDataLinksItem,
       LayoutDocumentDataLinks1Item,
+      LayoutDocumentDataLinks2Item,
       LayoutDocumentDataSocialLinksItem,
       PageDocument,
       PageDocumentData,

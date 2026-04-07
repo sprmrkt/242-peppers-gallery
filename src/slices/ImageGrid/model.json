@@ -152,6 +152,15 @@
                   "placeholder_true": "true",
                   "default_value": false
                 }
+              },
+              "stretch_to_row_height": {
+                "type": "Boolean",
+                "config": {
+                  "label": "Stretch to row height",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
               }
             }
           }
