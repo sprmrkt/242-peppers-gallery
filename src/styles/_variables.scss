@@ -38,9 +38,10 @@
   --grid-gap: var(--spacing-unit);
   --site-margin: var(--spacing-unit);
   --site-margin-md: calc(var(--spacing-unit) * 2);
-  --slice-vertical-padding: calc(var(--spacing-unit) * 2);
+  --slice-vertical-padding: var(--spacing-unit);
   --slice-vertical-padding-md: calc(var(--spacing-unit) * 3);
-  --site-content-gap: calc(var(--spacing-unit) * 4.5);
+  --site-content-gap: calc(var(--spacing-unit) * 2);
+  --site-content-gap-md: calc(var(--spacing-unit) * 4.5);
   --site-max-width: 1440px;
 
   // Once you have styled your header this is your variable to change.
