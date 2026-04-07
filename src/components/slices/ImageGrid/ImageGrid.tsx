@@ -64,7 +64,8 @@ const ImageGrid = ({
               [styles.Portrait]: fields.ratio === "Portrait",
               [styles.Landscape]: fields.ratio === "Landscape",
               [styles.MarginLeft]: fields.margin_left,
-              [styles.MarginRight]: fields.margin_right
+              [styles.MarginRight]: fields.margin_right,
+              [styles.Stretch]: fields.stretch_to_row_height
             });
             return (
               <div className={ItemClasses} key={index}>

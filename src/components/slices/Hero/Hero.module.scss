@@ -18,6 +18,25 @@
     padding-bottom: var(--slice-vertical-padding-md);
     padding-right: var(--site-margin-md);
   }
+
+  &.HasMobileMedia {
+    border: 10px solid red;
+    .Image,
+    .VimeoVideo,
+    .LibraryVideo {
+      display: none;
+      @include media(md) {
+        display: block;
+      }
+    }
+    .ImageMobile,
+    .VimeoVideoMobile,
+    .LibraryVideoMobile {
+      @include media(md) {
+        display: none;
+      }
+    }
+  }
 }
 
 .Inner {
@@ -37,25 +56,23 @@
   }
 }
 
-.Title {
-}
-
-.Image {
-  width: 100%;
-  aspect-ratio: 16/9;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-  img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.Titles {
+  .SubHeading {
+    color: red;
   }
 }
 
-.LibraryVideo {
+.Image,
+.ImageMobile {
+}
+
+.VimeoVideo,
+.VimeoVideoMobile {
+  position: relative;
+}
+
+.LibraryVideo,
+.LibraryVideoMobile {
   position: absolute;
   z-index: 0;
   inset: 0;
