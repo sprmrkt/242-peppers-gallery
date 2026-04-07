@@ -68,19 +68,28 @@
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--grid-gap);
   align-items: center;
   justify-content: center;
   text-align: center;
   text-transform: uppercase;
 
+  :first-child {
+    grid-row: 1 / span 2;
+  }
+
   p {
   @include font-highlight;
   @include type-sm;
+  margin: 0;
   }
 
   @include media(md) {
     grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--grid-gap);
+
+    :first-child {
+    grid-row: 1 / span 1;
+    }
   }
 }
 
