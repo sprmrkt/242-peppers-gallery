@@ -10,18 +10,18 @@ import classNames from "classnames";
 import { bgNameToClass } from "@/utils/helpers";
 
 const Feature = ({
-                   text,
-                   image,
-                   video,
-                   video_ratio,
-                   link,
-                   heading_2,
-                   background_colour,
-                   image_position,
-                   list,
-                   list_title,
-                   centered_text,
-                 }: FeatureProps["slice"]["primary"]) => {
+  text,
+  image,
+  video,
+  video_ratio,
+  link,
+  heading_2,
+  background_colour,
+  image_position,
+  list,
+  list_title,
+  centered_text,
+}: FeatureProps["slice"]["primary"]) => {
   const HolderClasses = classNames(styles.Holder, bgNameToClass(background_colour), {
     [styles.ImageRight]: image_position === "Right",
     [styles.ImageLeft]: image_position === "Left",
@@ -42,7 +42,7 @@ const Feature = ({
             </div>
           )}
           {isFilled.link(link) && (
-            <p><PrismicNextLink field={link} className="button" /></p>
+            <p><PrismicNextLink field={link} className="button color-variation-1" /></p>
           )}
           {list.length > 0 && (
             <div className={styles.List}>

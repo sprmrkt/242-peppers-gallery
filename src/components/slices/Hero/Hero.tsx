@@ -11,14 +11,14 @@ import VimeoBackground from "@/components/general/VimeoBackground/VimeoBackgroun
 import classNames from "classnames";
 
 const Hero = ({
-                heading_1,
-                background_image,
-                background_video,
-                background_video_from_media_library,
-                video_ratio,
-                details,
-                inset_image,
-              }: HeroProps["slice"]["primary"]) => {
+  heading_1,
+  background_image,
+  background_video,
+  background_video_from_media_library,
+  video_ratio,
+  details,
+  inset_image,
+}: HeroProps["slice"]["primary"]) => {
 
   const mediaClasses = classNames(styles.Media, {
     [styles.IsInset]: inset_image,
@@ -61,12 +61,14 @@ const Hero = ({
               <PrismicNextImage field={background_image} fallbackAlt="" />
             )}
         </div>
-        <div className={styles.Details}>
-          {details && details.length > 0 && details.map((detail, index) => {
-            if (!isFilled.richText(detail.text)) return null;
-            return <PrismicRichText key={index} field={detail.text} />;
-          })}
-        </div>
+        {details && details.length > 0 && (
+          <div className={styles.Details}>
+            {details.map((detail, index) => {
+              if (!isFilled.richText(detail.text)) return null;
+              return <PrismicRichText key={index} field={detail.text} />;
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
