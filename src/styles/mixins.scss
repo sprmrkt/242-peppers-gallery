@@ -6,9 +6,11 @@
 }
 @mixin font-highlight {
   font-family: var(--font-highlight), sans-serif;
+  font-weight: 400;
 }
 @mixin font-body {
   font-family: var(--font-body), sans-serif;
+  font-weight: 550;
 }
 
 // Type mixins line height, font size and letter spacing only!
@@ -52,12 +54,15 @@
 // Heading mixins include a type mixin and margin and font-weight, font style and text transform etc
 
 @mixin h1 {
-  @include type-xl;
+  @include type-lg;
   @include font-heading;
   font-weight: 700;
   text-transform: uppercase;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  @include media(md) {
+    @include type-xl;
+  }
 }
 
 @mixin h2 {
@@ -155,6 +160,7 @@ $breakpoints: (
   @include type-sm;
   @include font-highlight;
   text-transform: uppercase;
+  width: fit-content;
   font-weight: 400;
   text-decoration: none;
   white-space: nowrap;
