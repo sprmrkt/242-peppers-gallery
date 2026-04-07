@@ -86,17 +86,7 @@
   align-items: start;
   grid-template-columns: repeat(1, 1fr);
   gap: calc(var(--grid-gap) * 2);
-  @include media(sm) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: calc(var(--grid-gap) * 2) var(--grid-gap);
-  }
   @include media(md) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @include media(lg) {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  @include media(xl) {
     grid-template-columns: repeat(3, 1fr);
   }
 }
