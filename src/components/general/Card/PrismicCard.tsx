@@ -58,6 +58,9 @@ const PrismicCard: React.FC<PrismicCardProps> = ({ item }) => {
   return (
     <PrismicNextLink field={contentField} className={HolderClasses}>
       <div className={styles.Inner}>
+        {isFilled.keyText(title) && (
+          <h3 className={styles.MobileTitle}>{title}</h3>
+        )}
         <div className={styles.Image}>
           {isFilled.linkToMedia(preview_video) && !showFallback && (
             <video

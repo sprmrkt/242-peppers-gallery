@@ -111,9 +111,21 @@
 }
 
 .Title {
+  display: none;
   @include type-base;
   font-weight: bold;
   margin: 0;
+  @include media(md) {
+    display: block;
+  }
+}
+
+.MobileTitle {
+  @include h2;
+  margin: 0 0 var(--spacing-unit) 0;
+  @include media(md) {
+    display: none;
+  }
 }
 
 .Text {
