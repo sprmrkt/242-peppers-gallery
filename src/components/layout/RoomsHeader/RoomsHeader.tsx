@@ -20,7 +20,7 @@ const RoomsHeader: React.FC<Props> = ({ title, description, isPage }) => {
     <div className={styles.Holder}>
       <div className={styles.Inner}>
         {!isPage && <h1 className={styles.Title}>{title}</h1>}
-        {isPage && <p>{title}</p>}
+        {isPage && <p className={styles.Title}>{title}</p>}
         <div className={styles.TextHolder}>
           {isFilled.richText(description) && <PrismicRichText field={description} />}
         </div>
