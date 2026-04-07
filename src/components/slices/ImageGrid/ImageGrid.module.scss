@@ -52,14 +52,26 @@
 }
 
 .Grid {
-  display: grid;
-  align-items: start;
-  grid-auto-flow: dense;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
   gap: var(--grid-gap);
 
+  img {
+    width: auto;
+    height: 50vh;
+  }
+
   @include media(md) {
+    display: grid;
+    align-items: start;
+    grid-auto-flow: dense;
     grid-template-columns: repeat(12, 1fr);
+
+    img {
+      height: auto;
+      width: 100%;
+    }
   }
 }
 
@@ -78,7 +90,7 @@
       grid-column: span 6;
     }
     &.Third {
-      grid-column: span 6;
+      grid-column: span 4;
     }
     &.Quarter {
       grid-column: span 4;
@@ -107,7 +119,7 @@
 
   &.Portrait {
     .Image, .VideoHolder {
-      width: 100%;
+      // width: 100%; Setting this inside Grid.img now to achieve horizontal scroll on mobile. Correct me if this is no good.
       aspect-ratio: 2/3;
       object-fit: cover;
       object-position: center;
@@ -116,7 +128,7 @@
   }
   &.Landscape {
     .Image, .VideoHolder {
-      width: 100%;
+      // width: 100%; Setting this inside Grid.img now to achieve horizontal scroll on mobile. Correct me if this is no good.
       aspect-ratio: 3/2;
       object-fit: cover;
       object-position: center;
@@ -124,7 +136,7 @@
   }
   &.Square {
     .Image, .VideoHolder {
-      width: 100%;
+      // width: 100%; Setting this inside Grid.img now to achieve horizontal scroll on mobile. Correct me if this is no good.
       aspect-ratio: 1;
       object-fit: cover;
       object-position: center;
@@ -137,6 +149,8 @@
   margin-top: 0.5rem;
   p {
     @include type-sm;
+    @include font-highlight;
+    text-transform: uppercase;
   }
   > :first-child { margin-top: 0; }
   > :last-child { margin-bottom: 0; }
