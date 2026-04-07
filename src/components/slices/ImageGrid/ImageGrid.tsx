@@ -129,6 +129,14 @@ const ImageGrid = ({
                       </p>
                     </div>
                   )}
+                {(isFilled.keyText(fields.caption) &&
+                  !isFilled.link(fields.link) && !isFilled.keyText(fields.link.text)) && (
+                    <div className={styles.Caption}>
+                      <p>
+                        {fields.caption}
+                      </p>
+                    </div>
+                  )}
               </div>
             )
           })}
