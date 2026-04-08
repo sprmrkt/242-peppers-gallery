@@ -86,16 +86,20 @@
   }
 }
 
-.Nav {
+.NavHolder {
   display: none;
+  border-bottom: 1px solid var(--white);
+  @include media(md) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 3rem 0 6rem;
+    gap: var(--grid-gap);
+  }
+}
+
+.Nav {
   flex-direction: column;
   gap: 0rem;
-  border-bottom: 1px solid var(--white);
-  padding: 0 0 3rem;
-  @include media(md) {
-    display: flex;
-    padding: 3rem 0 6rem;
-  }
   p {
     @include font-highlight;
     text-transform: uppercase;
