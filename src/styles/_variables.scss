@@ -70,7 +70,7 @@
   // You may want a tint color of the BG for cards or for when a video loads
   // You have to set the color with a hex as variables do not work here so make sure it matches whatever you are setting as the slice bg color.
   --bg-tint-color: #{color.scale(#FDF5E6, $lightness: -10%)};
-  --text-tint-color: #{color.scale(#64624C, $lightness: 5%)};
+  --text-tint-color: #{color.scale(#64624C, $lightness: 50%)};
 
   // Buttons
   --button-color: var(--text-color);
@@ -92,7 +92,7 @@
   // There are two available variations in colour. These are styled using the classNames color-variation-1/2
   --var-1-text: var(--white);
   --var-1-bg: var(--eucalyptus);
-  --var-1-bg-tint: #{color.scale(#64624C, $lightness: 10%)};
+  --var-1-bg-tint: #{color.scale(#64624C, $lightness: 50%)};
   --var-1-text-tint: #{color.scale(#FDF5E6, $lightness: -10%)};
 
   --var-1-button-color: var(--var-1-bg);
