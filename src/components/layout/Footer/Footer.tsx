@@ -15,7 +15,7 @@ interface FooterProps {
 }
 
 export default async function Footer({ layoutData }: FooterProps) {
-  const { text, social_links, links_1, links_title_1, cta_text, cta_title, cta_link } = layoutData;
+  const { text, social_links, links_1, links_title_1, cta_text, cta_title, cta_link, links_2 } = layoutData;
 
   return (
     <>
@@ -48,6 +48,18 @@ export default async function Footer({ layoutData }: FooterProps) {
               {isFilled.keyText(links_title_1) && <p>{links_title_1}</p>}
               <ul>
                 {links_1.map(({ link }, index) => (
+                  <li key={index}>
+                    <PrismicNextLink field={link}>{link.text}</PrismicNextLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
+          {links_2.length > 0 && (
+            <nav className={styles.Nav}>
+              <p>Title Field to be added</p>
+              <ul>
+                {links_2.map(({ link }, index) => (
                   <li key={index}>
                     <PrismicNextLink field={link}>{link.text}</PrismicNextLink>
                   </li>
