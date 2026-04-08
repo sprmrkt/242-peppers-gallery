@@ -22,7 +22,6 @@ const Header = ({ data }) => {
 
   return (
     <header className={styles.Header}>
-      <div className={styles.Background} />
       <div className={styles.Inner}>
         <Link href="/" className={styles.Logo}>
           <Image src={Logo} alt="Logo" />
@@ -31,7 +30,7 @@ const Header = ({ data }) => {
           <ul>
             <li><button
               className="strip-styles"
-              onClick={() => setDesktopMenuOpen(false)}
+              onClick={() => setDesktopMenuOpen(true)}
               onMouseEnter={() => setDesktopMenuOpen(true)}
             >Menu</button></li>
             {isFilled.link(data.cta) && <li>
@@ -40,8 +39,8 @@ const Header = ({ data }) => {
           </ul>
           <SubMenu items={navItems} />
         </nav>
-      </div>
-    </header>
+      </div >
+    </header >
   );
 };
 

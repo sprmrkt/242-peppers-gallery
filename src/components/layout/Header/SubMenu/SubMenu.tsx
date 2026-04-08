@@ -19,19 +19,21 @@ const SubMenu = ({ items }) => {
     >
       {desktopMenuOpen && items.length > 0 && (
         <div className={styles.Dropdown}>
-          <ul className={styles.DropdownList}>
-            {items.map((item, index) => (
-              <li key={index} className={styles.DropdownItem}>
-                <PrismicNextLink
-                  field={item.link}
-                  className={styles.DropdownLink}
-                  onClick={() => setDesktopMenuOpen(false)}
-                >
-                  {item.link.text}
-                </PrismicNextLink>
-              </li>
-            ))}
-          </ul>
+          <div className={styles.DropdownListContainer}>
+            <ul className={styles.DropdownList}>
+              {items.map((item, index) => (
+                <li key={index} className={styles.DropdownItem}>
+                  <PrismicNextLink
+                    field={item.link}
+                    className={styles.DropdownLink}
+                    onClick={() => setDesktopMenuOpen(false)}
+                  >
+                    {item.link.text}
+                  </PrismicNextLink>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </div>
