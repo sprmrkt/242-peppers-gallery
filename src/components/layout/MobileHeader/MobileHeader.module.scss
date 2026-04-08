@@ -55,6 +55,7 @@
     p {
       @include type-sm;
       @include font-highlight;
+      margin: 0;
     }
 
     svg {

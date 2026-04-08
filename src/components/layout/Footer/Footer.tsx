@@ -43,29 +43,33 @@ export default async function Footer({ layoutData }: FooterProps) {
               <Image src={AllLogo} alt="All Logo" />
             </div>
           </div>
-          {links_1.length > 0 && (
-            <nav className={styles.Nav}>
-              {isFilled.keyText(links_title_1) && <p>{links_title_1}</p>}
-              <ul>
-                {links_1.map(({ link }, index) => (
-                  <li key={index}>
-                    <PrismicNextLink field={link}>{link.text}</PrismicNextLink>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          )}
-          {links_2.length > 0 && (
-            <nav className={styles.Nav}>
-              <p>Title Field to be added</p>
-              <ul>
-                {links_2.map(({ link }, index) => (
-                  <li key={index}>
-                    <PrismicNextLink field={link}>{link.text}</PrismicNextLink>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+          {(links_1.length > 0 || links_2.length > 0) && (
+            <div className={styles.NavHolder}>
+              {links_1.length > 0 && (
+                <nav className={styles.Nav}>
+                  {isFilled.keyText(links_title_1) && <p>{links_title_1}</p>}
+                  <ul>
+                    {links_1.map(({ link }, index) => (
+                      <li key={index}>
+                        <PrismicNextLink field={link}>{link.text}</PrismicNextLink>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              )}
+              {links_2.length > 0 && (
+                <nav className={styles.Nav}>
+                  <p>ROOMS & SUITES</p>
+                  <ul>
+                    {links_2.map(({ link }, index) => (
+                      <li key={index}>
+                        <PrismicNextLink field={link}>{link.text}</PrismicNextLink>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              )}
+            </div>
           )}
           {/* <nav className={styles.Nav}>
             <ul>
