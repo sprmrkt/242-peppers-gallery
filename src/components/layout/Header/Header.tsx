@@ -30,7 +30,7 @@ const Header = ({ data }) => {
           <ul>
             <li><button
               className="strip-styles"
-              onClick={() => setDesktopMenuOpen(true)}
+              onClick={() => setDesktopMenuOpen(false)}
               onMouseEnter={() => setDesktopMenuOpen(true)}
             >Menu</button></li>
             {isFilled.link(data.cta) && <li>
