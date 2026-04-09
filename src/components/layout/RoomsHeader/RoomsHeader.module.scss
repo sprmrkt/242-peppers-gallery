@@ -19,6 +19,20 @@
   }
 }
 
+.Titles {
+  margin-bottom: 2rem;
+  @include media(md) {
+    margin-bottom: 4rem;
+  }
+}
+
+.Subtitle {
+  @include type-sm;
+  @include font-highlight;
+  text-transform: uppercase;
+  margin: 0;
+}
+
 .Title {
   @include h1;
 }

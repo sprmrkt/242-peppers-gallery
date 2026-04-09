@@ -19,7 +19,7 @@
   transition: var(--hover-transition);
   height: 100%;
   &:hover {
-    transform: translate(0, -0.25rem);
+    // transform: translate(0, -0.25rem);
     img, video {
       transform: scale(1.025);
     }
