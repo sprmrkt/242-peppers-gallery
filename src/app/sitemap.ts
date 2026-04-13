@@ -8,10 +8,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const pages = await client.getAllByType("page");
   const home = await client.getAllByType("home");
+  const roomsListing = await client.getAllByType("rooms_listing");
   const rooms = await client.getAllByType("room");
 
   const pageEntries: MetadataRoute.Sitemap = pages.map((page) => ({
     url: `${process.env.URL}/${page.uid}`,
+  }));
+  const roomsListingEntries: MetadataRoute.Sitemap = roomsListing.map((roomsListing) => ({
+    url: `${process.env.URL}/rooms`,
   }));
   const roomEntries: MetadataRoute.Sitemap = rooms.map((room) => ({
     url: `${process.env.URL}/rooms/${room.uid}`,
@@ -21,6 +25,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date(home.last_publication_date),
   }));
 
-  return [...homeEntries, ...pageEntries, ...roomEntries];
+  return [...homeEntries, ...pageEntries, ...roomsListingEntries, ...roomEntries];
 }
 
