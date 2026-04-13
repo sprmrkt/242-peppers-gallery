@@ -25,6 +25,10 @@ export async function generateMetadata(): Promise<Metadata> {
         },
       ],
     },
+    metadataBase: new URL(process.env.URL ?? "https://peppersgallery.com.au"),
+    alternates: {
+      canonical: page?.url ?? null,
+    }
   };
 }
 

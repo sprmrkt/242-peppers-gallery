@@ -37,6 +37,10 @@ export async function generateMetadata(props: { params: Params }) {
         },
       ],
     },
+    metadataBase: new URL(process.env.URL ?? "https://peppersgallery.com.au"),
+    alternates: {
+      canonical: page?.url ?? null,
+    }
   };
 }
 
