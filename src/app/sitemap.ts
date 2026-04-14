@@ -13,12 +13,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const pageEntries: MetadataRoute.Sitemap = pages.map((page) => ({
     url: `${process.env.URL}/${page.uid}`,
+    lastModified: new Date(page.last_publication_date),
   }));
   const roomsListingEntries: MetadataRoute.Sitemap = roomsListing.map((roomsListing) => ({
     url: `${process.env.URL}/rooms`,
+    lastModified: new Date(roomsListing.last_publication_date),
   }));
   const roomEntries: MetadataRoute.Sitemap = rooms.map((room) => ({
     url: `${process.env.URL}/rooms/${room.uid}`,
+    lastModified: new Date(room.last_publication_date),
   }));
   const homeEntries: MetadataRoute.Sitemap = home.map((home) => ({
     url: `${process.env.URL}`,
