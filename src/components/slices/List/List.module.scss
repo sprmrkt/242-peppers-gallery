@@ -24,7 +24,7 @@
 
   &.TwoColumn {
     .ColumnOne {
-      display: block;
+      display: flex;
     }
     .Heading {
       padding-top: 0;
@@ -37,7 +37,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--grid-gap);
+  gap: calc(var(--grid-gap) * 2);
   @include media(md) {
     grid-template-columns: 1fr 1fr;
   }
@@ -109,10 +109,12 @@
 }
 
 .ColumnOne {
-  display: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--site-content-gap);
 }
 
 .ColOneTitle {
-  @include type-lg;
-  text-transform: uppercase;
+  @include h2;
+  margin: 0;
 }
