@@ -1686,6 +1686,26 @@ export interface ListSliceDefaultPrimary {
   heading_2: prismic.KeyTextField;
 
   /**
+   * Sub heading field in *List → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Use for two column option where headign 2 appears above description
+   * - **API ID Path**: list.default.primary.sub_heading
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  sub_heading: prismic.KeyTextField;
+
+  /**
+   * Description field in *List → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: list.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
    * List items field in *List → Default → Primary*
    *
    * - **Field Type**: Group
@@ -1705,7 +1725,15 @@ export interface ListSliceDefaultPrimary {
    * - **API ID Path**: list.default.primary.cta
    * - **Documentation**: https://prismic.io/docs/fields/link
    */
-  cta: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+  cta: prismic.Repeatable<
+    prismic.LinkField<
+      string,
+      string,
+      unknown,
+      prismic.FieldState,
+      "Primary" | "Secondary"
+    >
+  >;
 
   /**
    * Background Colour field in *List → Default → Primary*
@@ -1720,6 +1748,17 @@ export interface ListSliceDefaultPrimary {
     "Default" | "Variation 1" | "Variation 2",
     "filled"
   >;
+
+  /**
+   * Is Two Column field in *List → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: list.default.primary.is_two_column
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  is_two_column: prismic.BooleanField;
 }
 
 /**
@@ -1814,6 +1853,37 @@ export interface TextSliceDefaultPrimary {
     "Default" | "Variation 1" | "Variation 2",
     "filled"
   >;
+
+  /**
+   * Detail 1 field in *Text → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.default.primary.detail_1
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  detail_1: prismic.KeyTextField;
+
+  /**
+   * Detail 2 field in *Text → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text.default.primary.detail_2
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  detail_2: prismic.KeyTextField;
+
+  /**
+   * Is Centered field in *Text → Default → Primary*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: text.default.primary.is_centered
+   * - **Documentation**: https://prismic.io/docs/fields/boolean
+   */
+  is_centered: prismic.BooleanField;
 }
 
 /**

@@ -13,19 +13,42 @@ const List = ({
                 list_items,
                 cta,
                 background_colour,
+                description,
+                is_two_column,
+                sub_heading,
               }: ListProps["slice"]["primary"]) => {
 
   const InnerClasses = classNames(styles.Inner, bgNameToClass(background_colour), {
     [styles.InnerBg]: background_colour !== "Default",
   });
-  const HolderClasses = classNames(styles.Holder,  {
+  const HolderClasses = classNames(styles.Holder, {
     [styles.HasBg]: background_colour !== "Default",
+    [styles.TwoColumn]: is_two_column,
   });
   return (
     <div className={HolderClasses}>
       <div className={InnerClasses}>
-        <div className={styles.Content}>
-          {isFilled.keyText(heading_2) && <div className={styles.Heading}>{heading_2}</div>}
+        {is_two_column && <div className={styles.ColumnOne}>
+          {isFilled.keyText(heading_2) && <div className={styles.ColOneTitle}>{heading_2}</div>}
+          {isFilled.richText(description) && <div className={styles.Description}><PrismicRichText field={description}/></div>}
+          {Array.isArray(cta) && cta.length > 0 && isFilled.link(cta[0]) && (
+            <div className={styles.CtaListHolder}>
+              {cta.map(
+                (link, index) =>
+                  isFilled.link(link) && (
+                    <PrismicNextLink
+                      className={`${link.variant ?? ""} button`}
+                      field={link}
+                      key={index}
+                    />
+                  ),
+              )}
+            </div>
+          )}
+        </div>}
+        <div className={styles.ListHolder}>
+          {isFilled.keyText(heading_2) && !is_two_column && <div className={styles.Heading}>{heading_2}</div>}
+          {isFilled.keyText(sub_heading) && is_two_column && <div className={styles.Heading}>{sub_heading}</div>}
           {list_items.length > 0 && (
             <div className={styles.List}>
               <ul>
@@ -45,8 +68,19 @@ const List = ({
               </ul>
             </div>
           )}
-          {isFilled.link(cta) && (
-            <PrismicNextLink field={cta} className="button" />
+          {Array.isArray(cta) && cta.length > 0 && !is_two_column && isFilled.link(cta[0]) && (
+            <div className={styles.CtaListHolder}>
+              {cta.map(
+                (link, index) =>
+                  isFilled.link(link) && (
+                    <PrismicNextLink
+                      className={`${link.variant ?? ""} button`}
+                      field={link}
+                      key={index}
+                    />
+                  ),
+              )}
+            </div>
           )}
         </div>
       </div>

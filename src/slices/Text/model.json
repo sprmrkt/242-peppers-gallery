@@ -67,6 +67,29 @@
             ],
             "default_value": "Default"
           }
+        },
+        "detail_1": {
+          "type": "Text",
+          "config": {
+            "label": "Detail 1",
+            "placeholder": ""
+          }
+        },
+        "detail_2": {
+          "type": "Text",
+          "config": {
+            "label": "Detail 2",
+            "placeholder": ""
+          }
+        },
+        "is_centered": {
+          "type": "Boolean",
+          "config": {
+            "label": "Is Centered",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
+          }
         }
       },
       "items": {}

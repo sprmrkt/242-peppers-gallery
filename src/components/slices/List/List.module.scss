@@ -21,6 +21,15 @@
       padding: 0 var(--site-margin-md);
     }
   }
+
+  &.TwoColumn {
+    .ColumnOne {
+      display: block;
+    }
+    .Heading {
+      padding-top: 0;
+    }
+  }
 }
 
 .Inner {
@@ -40,7 +49,7 @@
   }
 }
 
-.Content {
+.ListHolder {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -94,4 +103,16 @@
     text-align: right;
   }
 }
+.CtaListHolder {
+  display: flex;
+  gap: 1rem;
+}
 
+.ColumnOne {
+  display: none;
+}
+
+.ColOneTitle {
+  @include type-lg;
+  text-transform: uppercase;
+}

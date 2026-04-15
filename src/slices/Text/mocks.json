@@ -50,6 +50,20 @@
 						}
 					}
 				]
+			},
+			"detail_1": {
+				"__TYPE__": "FieldContent",
+				"value": "alphabet",
+				"type": "Text"
+			},
+			"detail_2": {
+				"__TYPE__": "FieldContent",
+				"value": "doctor",
+				"type": "Text"
+			},
+			"is_centered": {
+				"__TYPE__": "BooleanContent",
+				"value": false
 			}
 		},
 		"items": []

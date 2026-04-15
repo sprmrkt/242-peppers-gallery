@@ -9,13 +9,20 @@
 				"type": "Text"
 			},
 			"cta": {
-				"key": "792a91f0-b1cf-4056-876f-6e84a2cdb6ab",
-				"__TYPE__": "LinkContent",
-				"value": {
-					"__TYPE__": "ExternalLink",
-					"url": "http://google.com",
-					"text": "zero"
-				}
+				"__TYPE__": "RepeatableContent",
+				"type": "Link",
+				"value": [
+					{
+						"key": "d98f16b2-f7ba-4db9-8328-da72f904dd7e",
+						"__TYPE__": "LinkContent",
+						"value": {
+							"__TYPE__": "ExternalLink",
+							"url": "http://twitter.com",
+							"text": "safe",
+							"variant": "Secondary"
+						}
+					}
+				]
 			},
 			"list_items": {
 				"__TYPE__": "GroupContentType",
@@ -67,6 +74,26 @@
 				"__TYPE__": "FieldContent",
 				"value": "Default",
 				"type": "Select"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis officia in sunt. Minim quis laboris ullamco esse ut ut in pariatur exercitation. Velit reprehenderit ea laboris dolore dolor ullamco adipisicing occaecat incididunt."
+						}
+					}
+				]
+			},
+			"is_two_column": {
+				"__TYPE__": "BooleanContent",
+				"value": false
+			},
+			"sub_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "breathe",
+				"type": "Text"
 			}
 		},
 		"items": []

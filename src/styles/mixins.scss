@@ -216,5 +216,8 @@ $breakpoints: (
     @include type-sm;
   }
   &.Secondary {
+    color: $bg-color;
+    background-color: $color;
+    border-color: $border-color;
   }
 }

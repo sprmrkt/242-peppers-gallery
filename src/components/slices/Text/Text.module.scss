@@ -32,6 +32,28 @@
     @include media(md) {
       padding: var(--slice-vertical-padding-md) var(--site-margin-md);
     }
+    &.HasDetails {
+      padding-top: 2rem;
+    }
+  }
+  &.Centered {
+    .TextHolder {
+      text-align: center;
+      margin: 0 auto;
+      max-width: 60rem;
+    }
+  }
+}
+
+.Details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 10rem;
+  p {
+    margin: 0;
   }
 }
 

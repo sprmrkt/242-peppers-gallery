@@ -19,6 +19,22 @@
             "placeholder": ""
           }
         },
+        "sub_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Sub heading",
+            "placeholder": "Use for two column option where headign 2 appears above description"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
         "list_items": {
           "type": "Group",
           "config": {
@@ -61,7 +77,11 @@
             "select": null,
             "allowTargetBlank": true,
             "allowText": true,
-            "repeat": false
+            "repeat": true,
+            "variants": [
+              "Primary",
+              "Secondary"
+            ]
           }
         },
         "background_colour": {
@@ -75,6 +95,15 @@
               "Variation 2"
             ],
             "default_value": "Default"
+          }
+        },
+        "is_two_column": {
+          "type": "Boolean",
+          "config": {
+            "label": "Is Two Column",
+            "placeholder_false": "false",
+            "placeholder_true": "true",
+            "default_value": false
           }
         }
       },
