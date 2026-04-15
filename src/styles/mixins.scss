@@ -42,13 +42,13 @@
 @mixin type-lg {
   font-size: var(--type-lg);
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.05em;
 }
 
 @mixin type-xl {
   font-size: var(--type-xl);
   line-height: 1;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.05em;
 }
 
 // Heading mixins include a type mixin and margin and font-weight, font style and text transform etc

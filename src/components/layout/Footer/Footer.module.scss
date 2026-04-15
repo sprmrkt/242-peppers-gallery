@@ -188,3 +188,9 @@
   }
 }
 
+.CTATitle {
+  @include media(md) {
+    @include type-md;
+  }
+}
+
