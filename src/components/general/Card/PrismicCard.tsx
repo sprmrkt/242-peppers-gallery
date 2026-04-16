@@ -49,11 +49,26 @@ const PrismicCard: React.FC<PrismicCardProps> = ({ item }) => {
   if (!isFilled.contentRelationship(contentField)) {
     return null;
   }
-  const { title, preview_image, preview_video, video_poster_image, beds, guests, bath, type } = contentField.data as any;
+  const {
+    title,
+    preview_image,
+    preview_video,
+    video_poster_image,
+    beds,
+    guests,
+    bath,
+    type,
+  } = contentField.data as any;
 
-  const HolderClasses = classNames(styles.Holder, `is-${type.toLowerCase()}`, {
-    [styles.HasBg]: hasBg,
-  });
+  const formattedType = type || "room";
+
+  const HolderClasses = classNames(
+    styles.Holder,
+    `is-${formattedType.toLowerCase()}`,
+    {
+      [styles.HasBg]: hasBg,
+    },
+  );
 
   return (
     <PrismicNextLink field={contentField} className={HolderClasses}>

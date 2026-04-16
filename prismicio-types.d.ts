@@ -741,6 +741,38 @@ interface RoomDocumentData {
 export type RoomDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<RoomDocumentData>, "room", Lang>;
 
+/**
+ * Item in *Rooms Listing → Rooms*
+ */
+export interface RoomsListingDocumentDataRoomsItem {
+  /**
+   * Room field in *Rooms Listing → Rooms*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rooms_listing.rooms[].room
+   * - **Documentation**: https://prismic.io/docs/fields/content-relationship
+   */
+  room: ContentRelationshipFieldWithData<
+    [
+      {
+        id: "room";
+        fields: [
+          "title",
+          "beds",
+          "guests",
+          "bath",
+          "preview_image",
+          "type",
+          "preview_vimeo",
+          "preview_video",
+          "video_poster_image",
+        ];
+      },
+    ]
+  >;
+}
+
 type RoomsListingDocumentDataSlicesSlice = never;
 
 /**
@@ -768,6 +800,17 @@ interface RoomsListingDocumentData {
    * - **Documentation**: https://prismic.io/docs/fields/rich-text
    */
   description: prismic.RichTextField;
+
+  /**
+   * Rooms field in *Rooms Listing*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: rooms_listing.rooms[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  rooms: prismic.GroupField<Simplify<RoomsListingDocumentDataRoomsItem>>;
 
   /**
    * Slice Zone field in *Rooms Listing*
@@ -1953,6 +1996,7 @@ declare module "@prismicio/client" {
       RoomDocumentDataSlicesSlice,
       RoomsListingDocument,
       RoomsListingDocumentData,
+      RoomsListingDocumentDataRoomsItem,
       RoomsListingDocumentDataSlicesSlice,
       AllDocumentTypes,
       ContentListSlice,

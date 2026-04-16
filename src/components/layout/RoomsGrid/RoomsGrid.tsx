@@ -5,10 +5,12 @@ import PrismicCardForDocs from "@/components/general/Card/PrismicCardForDocs";
 import styles from "./RoomsGrid.module.scss";
 import classNames from "classnames";
 import { useFilterStore } from "@/stores/useStore";
+import { GroupField } from "@prismicio/client";
+import PrismicCard from "@/components/general/Card/PrismicCard";
 
 interface Props {
   // Define the props of the component here.
-  rooms: RoomDocument[];
+  rooms: GroupField;
 }
 
 const RoomsGrid: React.FC<Props> = ({ rooms }) => {
@@ -20,9 +22,9 @@ const RoomsGrid: React.FC<Props> = ({ rooms }) => {
     <div className={HolderClasses}>
       <div className={styles.Inner}>
         <div className={styles.Grid}>
-          {rooms.map((page, index) => {
+          {rooms.map((room, index) => {
             return (
-              <PrismicCardForDocs key={index} item={page} />
+              <PrismicCard key={index} item={room} />
             );
           })}
         </div>

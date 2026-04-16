@@ -22,6 +22,39 @@
           "multi": "paragraph,strong,em,hyperlink"
         }
       },
+      "rooms": {
+        "type": "Group",
+        "config": {
+          "label": "Rooms",
+          "repeat": true,
+          "fields": {
+            "room": {
+              "type": "Link",
+              "config": {
+                "label": "Room",
+                "select": "document",
+                "repeat": false,
+                "customtypes": [
+                  {
+                    "id": "room",
+                    "fields": [
+                      "title",
+                      "beds",
+                      "guests",
+                      "bath",
+                      "preview_image",
+                      "type",
+                      "preview_vimeo",
+                      "preview_video",
+                      "video_poster_image"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

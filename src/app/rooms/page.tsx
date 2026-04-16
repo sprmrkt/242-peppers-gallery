@@ -38,13 +38,12 @@ export default async function Home() {
 
   //  Look for the page
   //  If it doesn't exist, return a 404
-  const pages = await client.getAllByType("room");
   const listingPage = await client.getSingle("rooms_listing").catch(() => notFound());
 
   return (
     <div>
       <RoomsHeader title={listingPage.data.title} description={listingPage.data.description} />
-      <RoomsGrid rooms={pages} />
+      <RoomsGrid rooms={listingPage.data.rooms} />
     </div>
   );
 }
