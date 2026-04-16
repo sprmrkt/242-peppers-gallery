@@ -34,15 +34,26 @@
     }
     &.HasDetails {
       padding-top: 2rem;
+      @include media(md) {
+      .TextHolder {
+        max-width: 100%;
+        h2 {
+        max-width: 100%;
+        margin: 14rem 0 10rem;
+      }
+      }
+      }
     }
   }
   &.Centered {
     .TextHolder {
+      @include media(md) {
       text-align: center;
       margin: 0 auto;
-      max-width: 60rem;
+      max-width: 75rem;
     }
   }
+}
 }
 
 .Details {
@@ -51,8 +62,11 @@
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 10rem;
+  margin-bottom: 4rem;
   p {
+    @include font-highlight;
+    @include type-sm;
+    text-transform: uppercase;
     margin: 0;
   }
 }
